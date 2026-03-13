@@ -104,6 +104,7 @@ export const projects: Project[] = [
     ],
     github: "https://github.com",
     demo: "https://example.com",
+    image: "project-pulse",
   },
   {
     id: "vaultguard",
@@ -124,6 +125,7 @@ export const projects: Project[] = [
       "Designed an audit system using append-only Merkle trees to provide cryptographic proof of log integrity.",
     ],
     github: "https://github.com",
+    image: "project-vault",
   },
   {
     id: "gridflow",
@@ -145,6 +147,7 @@ export const projects: Project[] = [
     ],
     github: "https://github.com",
     demo: "https://example.com",
+    image: "project-gridflow",
   },
   {
     id: "spectra-ui",
@@ -166,5 +169,6 @@ export const projects: Project[] = [
     ],
     github: "https://github.com",
     demo: "https://example.com",
+    image: "project-spectra",
   },
 ];
