@@ -4,6 +4,7 @@ import { useParams, Link } from "react-router-dom";
 import { projects } from "@/data/portfolio";
 import { ArrowLeft, ArrowUpRight, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { getProjectImage } from "@/lib/projectImages";
 
 const fadeUp = {
   initial: { opacity: 0, y: 20 },
@@ -30,6 +31,8 @@ const ProjectDetail = () => {
       </Layout>
     );
   }
+
+  const img = getProjectImage(project.image);
 
   return (
     <Layout>
@@ -80,6 +83,21 @@ const ProjectDetail = () => {
             </a>
           )}
         </motion.div>
+
+        {/* Project Image */}
+        {img && (
+          <motion.div
+            {...fadeUp}
+            transition={{ duration: 0.4, delay: 0.12 }}
+            className="mb-10 rounded-2xl overflow-hidden glass"
+          >
+            <img
+              src={img}
+              alt={project.title}
+              className="w-full h-auto object-cover"
+            />
+          </motion.div>
+        )}
 
         {/* Tech Stack */}
         <motion.div
