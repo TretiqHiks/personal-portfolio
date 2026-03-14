@@ -9,6 +9,7 @@ export interface Project {
   github?: string;
   demo?: string;
   image?: string;
+  status: "active" | "past";
 }
 
 export interface ExperienceEntry {
