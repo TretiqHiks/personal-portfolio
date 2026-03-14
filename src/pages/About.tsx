@@ -135,6 +135,44 @@ const About = () => {
   return (
     <Layout>
       <div className="max-w-5xl mx-auto px-6 py-12 space-y-28">
+        {/* ── 0. Quick Facts ── */}
+        <section>
+          <motion.h2
+            {...fadeUp}
+            transition={{ duration: 0.5 }}
+            className="text-2xl md:text-3xl font-bold text-gradient mb-8"
+          >
+            Quick Facts
+          </motion.h2>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            {quickFacts.map((f, i) => {
+              const Icon = f.icon;
+              return (
+                <motion.div
+                  key={f.label}
+                  {...fadeUp}
+                  transition={{ duration: 0.4, delay: i * 0.06 }}
+                  whileHover={{ scale: 1.04 }}
+                  className="glass rounded-2xl p-4 flex items-center gap-3 cursor-default"
+                >
+                  <div className="w-9 h-9 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
+                    <Icon className="w-4 h-4 text-accent" />
+                  </div>
+                  <div>
+                    <p className="text-[11px] uppercase tracking-wider text-muted-foreground font-medium">
+                      {f.label}
+                    </p>
+                    <p className="text-sm font-semibold text-foreground">
+                      {f.value}
+                    </p>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </section>
+
         {/* ── 1. Hero Intro ── */}
         <section className="grid md:grid-cols-2 gap-10 items-center">
           <motion.div
@@ -318,43 +356,8 @@ const About = () => {
           </motion.div>
         </section>
 
-        {/* ── 5. Quick Facts ── */}
-        <section className="pb-12">
-          <motion.h2
-            {...fadeUp}
-            transition={{ duration: 0.5 }}
-            className="text-2xl md:text-3xl font-bold text-gradient mb-8"
-          >
-            Quick Facts
-          </motion.h2>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {quickFacts.map((f, i) => {
-              const Icon = f.icon;
-              return (
-                <motion.div
-                  key={f.label}
-                  {...fadeUp}
-                  transition={{ duration: 0.4, delay: i * 0.06 }}
-                  whileHover={{ scale: 1.04 }}
-                  className="glass rounded-2xl p-4 flex items-center gap-3 cursor-default"
-                >
-                  <div className="w-9 h-9 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
-                    <Icon className="w-4 h-4 text-accent" />
-                  </div>
-                  <div>
-                    <p className="text-[11px] uppercase tracking-wider text-muted-foreground font-medium">
-                      {f.label}
-                    </p>
-                    <p className="text-sm font-semibold text-foreground">
-                      {f.value}
-                    </p>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
-        </section>
+        {/* spacer */}
+        <div className="pb-12" />
       </div>
     </Layout>
   );

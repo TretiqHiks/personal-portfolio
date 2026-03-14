@@ -9,6 +9,7 @@ export interface Project {
   github?: string;
   demo?: string;
   image?: string;
+  status: "active" | "past";
 }
 
 export interface ExperienceEntry {
@@ -105,6 +106,7 @@ export const projects: Project[] = [
     github: "https://github.com",
     demo: "https://example.com",
     image: "project-pulse",
+    status: "active",
   },
   {
     id: "vaultguard",
@@ -126,6 +128,7 @@ export const projects: Project[] = [
     ],
     github: "https://github.com",
     image: "project-vault",
+    status: "active",
   },
   {
     id: "gridflow",
@@ -148,6 +151,7 @@ export const projects: Project[] = [
     github: "https://github.com",
     demo: "https://example.com",
     image: "project-gridflow",
+    status: "past",
   },
   {
     id: "spectra-ui",
@@ -170,5 +174,6 @@ export const projects: Project[] = [
     github: "https://github.com",
     demo: "https://example.com",
     image: "project-spectra",
+    status: "past",
   },
 ];
