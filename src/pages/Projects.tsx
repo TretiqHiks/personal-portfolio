@@ -112,3 +112,5 @@ const Projects = () => {
     </Layout>
   );
 };
+
+export default Projects;
