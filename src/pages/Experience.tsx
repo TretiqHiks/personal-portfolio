@@ -72,7 +72,8 @@ const Experience = () => {
                     </div>
                   </div>
                 </motion.div>
-              ))}
+                );
+              })}
             </div>
           </div>
 
