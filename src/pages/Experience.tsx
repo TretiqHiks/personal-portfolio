@@ -29,17 +29,21 @@ const Experience = () => {
             <div className="absolute left-[7px] top-2 bottom-2 w-px bg-border" />
 
             <div className="space-y-8">
-              {experiences.map((exp, i) => (
+              {experiences.map((exp, i) => {
+                const isCurrent = i === 0;
+                return (
                 <motion.div
                   key={exp.id}
                   {...fadeUp}
                   transition={{ duration: 0.4, delay: 0.1 * i }}
-                  className="relative pl-8 group cursor-default"
+                  className="relative pl-10 group cursor-default"
                   onMouseEnter={() => setHighlightedSkills(exp.skills)}
                   onMouseLeave={() => setHighlightedSkills([])}
                 >
                   {/* Dot */}
-                  <div className="absolute left-0 top-1.5 w-[15px] h-[15px] rounded-full border-2 border-primary bg-background transition-colors duration-200 group-hover:bg-primary" />
+                  <div className={`absolute top-1 rounded-full border-2 border-primary bg-background transition-all duration-200 group-hover:bg-primary group-hover:scale-150 ${
+                    isCurrent ? "left-[-2px] w-[19px] h-[19px]" : "left-0 w-[15px] h-[15px]"
+                  }`} />
 
                   <div className="glass rounded-2xl p-5 transition-all duration-200 group-hover:glow-blue">
                     <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-2">
