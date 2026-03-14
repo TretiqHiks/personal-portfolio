@@ -151,6 +151,7 @@ export const projects: Project[] = [
     github: "https://github.com",
     demo: "https://example.com",
     image: "project-gridflow",
+    status: "past",
   },
   {
     id: "spectra-ui",
