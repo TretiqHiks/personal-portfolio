@@ -128,6 +128,7 @@ export const projects: Project[] = [
     ],
     github: "https://github.com",
     image: "project-vault",
+    status: "active",
   },
   {
     id: "gridflow",
