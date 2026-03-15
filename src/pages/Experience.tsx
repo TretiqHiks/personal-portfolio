@@ -13,7 +13,7 @@ const Experience = () => {
 
   return (
     <Layout>
-      <div className="max-w-5xl mx-auto px-6 py-16">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
         <motion.h1
           {...fadeUp}
           transition={{ duration: 0.5 }}

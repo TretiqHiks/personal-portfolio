@@ -136,7 +136,7 @@ const Contact = () => {
 
         {/* ── 3. Contact Form ── */}
         <motion.section {...fadeUp} transition={{ duration: 0.5, delay: 0.1 }}>
-          <div className="glass rounded-2xl p-8 md:p-10 max-w-2xl mx-auto">
+          <div className="glass rounded-2xl p-5 sm:p-8 md:p-10 max-w-2xl mx-auto">
             <h2 className="text-xl font-semibold text-foreground mb-6 text-center">
               Send a Message
             </h2>

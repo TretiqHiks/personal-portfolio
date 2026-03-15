@@ -59,7 +59,7 @@ const Index = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="flex gap-3 mt-2"
+            className="flex flex-col sm:flex-row gap-3 mt-2 w-full sm:w-auto"
           >
             <Button asChild size="lg" className="rounded-full gap-2 glow-blue">
               <Link to="/projects">

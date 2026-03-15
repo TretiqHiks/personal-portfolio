@@ -238,7 +238,7 @@ const About = () => {
                     key={m.year}
                     {...fadeUp}
                     transition={{ duration: 0.5, delay: i * 0.08 }}
-                    className={`relative flex items-start gap-5 md:gap-0 ${
+                    className={`relative flex items-start gap-4 sm:gap-5 md:gap-0 ${
                       isRight ? "md:flex-row-reverse" : ""
                     }`}
                     onMouseEnter={() => setActiveMilestone(i)}
