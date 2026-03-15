@@ -84,7 +84,7 @@ const Contact = () => {
 
   return (
     <Layout>
-      <div className="max-w-4xl mx-auto px-6 py-16 space-y-20">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 py-10 sm:py-16 space-y-14 sm:space-y-20">
         {/* ── 1. Intro ── */}
         <motion.section
           {...fadeUp}
@@ -103,7 +103,7 @@ const Contact = () => {
 
         {/* ── 2. Contact Methods ── */}
         <section>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-4">
             {contactMethods.map((method, i) => {
               const Icon = method.icon;
               return (
@@ -136,7 +136,7 @@ const Contact = () => {
 
         {/* ── 3. Contact Form ── */}
         <motion.section {...fadeUp} transition={{ duration: 0.5, delay: 0.1 }}>
-          <div className="glass rounded-2xl p-8 md:p-10 max-w-2xl mx-auto">
+          <div className="glass rounded-2xl p-5 sm:p-8 md:p-10 max-w-2xl mx-auto">
             <h2 className="text-xl font-semibold text-foreground mb-6 text-center">
               Send a Message
             </h2>

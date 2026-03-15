@@ -7,8 +7,8 @@ import { ArrowRight, Briefcase } from "lucide-react";
 const Index = () => {
   return (
     <Layout noScroll>
-      <div className="flex items-center justify-center" style={{ height: "calc(100vh - 120px)" }}>
-        <div className="flex flex-col items-center text-center px-6 max-w-3xl mx-auto gap-6">
+      <div className="flex items-center justify-center px-4" style={{ height: "calc(100vh - 120px)" }}>
+        <div className="flex flex-col items-center text-center px-4 max-w-3xl mx-auto gap-4 sm:gap-6">
           {/* Avatar */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -25,7 +25,7 @@ const Index = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <h1 className="text-4xl md:text-5xl font-bold text-gradient mb-2">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gradient mb-2">
               Alex Kowalski
             </h1>
             <p className="text-lg text-muted-foreground font-medium">
@@ -59,7 +59,7 @@ const Index = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="flex gap-3 mt-2"
+            className="flex flex-col sm:flex-row gap-3 mt-2 w-full sm:w-auto"
           >
             <Button asChild size="lg" className="rounded-full gap-2 glow-blue">
               <Link to="/projects">

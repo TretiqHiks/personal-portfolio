@@ -134,7 +134,7 @@ const About = () => {
 
   return (
     <Layout>
-      <div className="max-w-5xl mx-auto px-6 py-12 space-y-28">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-16 sm:space-y-28">
         {/* ── 0. Quick Facts ── */}
         <section>
           <motion.h2
@@ -174,13 +174,13 @@ const About = () => {
         </section>
 
         {/* ── 1. Hero Intro ── */}
-        <section className="grid md:grid-cols-2 gap-10 items-center">
+        <section className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 items-center">
           <motion.div
             {...fadeUp}
             transition={{ duration: 0.6 }}
             className="space-y-5"
           >
-            <h1 className="text-4xl md:text-5xl font-bold text-gradient leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gradient leading-tight">
               About Me
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
@@ -238,7 +238,7 @@ const About = () => {
                     key={m.year}
                     {...fadeUp}
                     transition={{ duration: 0.5, delay: i * 0.08 }}
-                    className={`relative flex items-start gap-5 md:gap-0 ${
+                    className={`relative flex items-start gap-4 sm:gap-5 md:gap-0 ${
                       isRight ? "md:flex-row-reverse" : ""
                     }`}
                     onMouseEnter={() => setActiveMilestone(i)}
@@ -299,7 +299,7 @@ const About = () => {
             What I Love Building
           </motion.h2>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
             {passions.map((p, i) => {
               const Icon = p.icon;
               return (
