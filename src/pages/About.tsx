@@ -134,7 +134,7 @@ const About = () => {
 
   return (
     <Layout>
-      <div className="max-w-5xl mx-auto px-6 py-12 space-y-28">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-16 sm:space-y-28">
         {/* ── 0. Quick Facts ── */}
         <section>
           <motion.h2
