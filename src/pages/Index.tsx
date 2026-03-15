@@ -25,7 +25,7 @@ const Index = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <h1 className="text-4xl md:text-5xl font-bold text-gradient mb-2">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gradient mb-2">
               Alex Kowalski
             </h1>
             <p className="text-lg text-muted-foreground font-medium">
