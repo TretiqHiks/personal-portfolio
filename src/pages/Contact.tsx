@@ -103,7 +103,7 @@ const Contact = () => {
 
         {/* ── 2. Contact Methods ── */}
         <section>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-4">
             {contactMethods.map((method, i) => {
               const Icon = method.icon;
               return (
