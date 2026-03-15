@@ -7,8 +7,8 @@ import { ArrowRight, Briefcase } from "lucide-react";
 const Index = () => {
   return (
     <Layout noScroll>
-      <div className="flex items-center justify-center" style={{ height: "calc(100vh - 120px)" }}>
-        <div className="flex flex-col items-center text-center px-6 max-w-3xl mx-auto gap-6">
+      <div className="flex items-center justify-center px-4" style={{ height: "calc(100vh - 120px)" }}>
+        <div className="flex flex-col items-center text-center px-4 max-w-3xl mx-auto gap-4 sm:gap-6">
           {/* Avatar */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
