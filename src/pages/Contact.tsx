@@ -84,7 +84,7 @@ const Contact = () => {
 
   return (
     <Layout>
-      <div className="max-w-4xl mx-auto px-6 py-16 space-y-20">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 py-10 sm:py-16 space-y-14 sm:space-y-20">
         {/* ── 1. Intro ── */}
         <motion.section
           {...fadeUp}
