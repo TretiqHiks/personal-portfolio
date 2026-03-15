@@ -174,7 +174,7 @@ const About = () => {
         </section>
 
         {/* ── 1. Hero Intro ── */}
-        <section className="grid md:grid-cols-2 gap-10 items-center">
+        <section className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 items-center">
           <motion.div
             {...fadeUp}
             transition={{ duration: 0.6 }}
