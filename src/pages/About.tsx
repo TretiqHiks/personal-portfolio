@@ -180,7 +180,7 @@ const About = () => {
             transition={{ duration: 0.6 }}
             className="space-y-5"
           >
-            <h1 className="text-4xl md:text-5xl font-bold text-gradient leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gradient leading-tight">
               About Me
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
