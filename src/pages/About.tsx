@@ -258,7 +258,7 @@ const About = () => {
                       <motion.div
                         whileHover={{ scale: 1.02 }}
                         className={`glass rounded-2xl p-5 cursor-pointer transition-all duration-300 ${
-                          isActive ? "glow-blue border-primary/30" : ""
+                          isActive ? "glow-primary border-primary/30" : ""
                         }`}
                       >
                         <span className="text-xs font-semibold text-accent tracking-wider uppercase">
