@@ -25,7 +25,7 @@ const Navbar = () => {
     >
       {/* Desktop nav */}
       {!isMobile && (
-        <div className="glass rounded-full px-2 py-1.5 flex items-center gap-1 glow-blue">
+        <div className="glass rounded-full px-2 py-1.5 flex items-center gap-1 glow-primary">
           {links.map((link) => (
             <NavLink
               key={link.to}
@@ -46,7 +46,7 @@ const Navbar = () => {
           <span className="text-sm font-semibold text-foreground pl-1">AK</span>
           <button
             onClick={() => setOpen(!open)}
-            className="glass rounded-full p-2.5 glow-blue"
+            className="glass rounded-full p-2.5 glow-primary"
             aria-label="Toggle menu"
           >
             {open ? <X className="w-5 h-5 text-foreground" /> : <Menu className="w-5 h-5 text-foreground" />}
@@ -64,7 +64,7 @@ const Navbar = () => {
             transition={{ duration: 0.2 }}
             className="fixed inset-x-0 top-[72px] z-50 px-4"
           >
-            <div className="glass-strong rounded-2xl p-3 flex flex-col gap-1 glow-blue">
+            <div className="glass-strong rounded-2xl p-3 flex flex-col gap-1 glow-primary">
               {links.map((link) => (
                 <NavLink
                   key={link.to}

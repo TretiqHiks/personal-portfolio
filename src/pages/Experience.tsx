@@ -45,7 +45,7 @@ const Experience = () => {
                     isCurrent ? "left-[-2px] w-[19px] h-[19px]" : "left-0 w-[15px] h-[15px]"
                   }`} />
 
-                  <div className="glass rounded-2xl p-5 transition-all duration-200 group-hover:glow-blue">
+                  <div className="glass rounded-2xl p-5 transition-all duration-200 group-hover:glow-primary">
                     <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-2">
                       <h3 className="text-base font-semibold text-foreground">
                         {exp.role}
@@ -101,7 +101,7 @@ const Experience = () => {
                             key={skill}
                             className={`text-xs px-2.5 py-1 rounded-lg font-medium transition-all duration-200 ${
                               isHighlighted
-                                ? "bg-primary text-primary-foreground glow-blue scale-105"
+                                ? "bg-primary text-primary-foreground glow-primary scale-105"
                                 : highlightedSkills.length > 0
                                 ? "glass text-muted-foreground/50"
                                 : "glass text-secondary-foreground hover:text-foreground hover:border-primary/30"
