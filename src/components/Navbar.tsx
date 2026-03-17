@@ -25,7 +25,7 @@ const Navbar = () => {
     >
       {/* Desktop nav */}
       {!isMobile && (
-        <div className="glass rounded-full px-2 py-1.5 flex items-center gap-1 glow-blue">
+        <div className="glass rounded-full px-2 py-1.5 flex items-center gap-1 glow-primary">
           {links.map((link) => (
             <NavLink
               key={link.to}
