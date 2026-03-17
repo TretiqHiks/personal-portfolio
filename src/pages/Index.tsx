@@ -15,9 +15,13 @@ const Index = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
-            className="w-28 h-28 rounded-full glass glow-blue flex items-center justify-center text-3xl font-bold text-primary"
+            className="w-28 h-28 rounded-full glass glow-blue overflow-hidden"
           >
-            AK
+            <img
+              src={portrait}
+              alt="Alex Kowalski"
+              className="w-full h-full object-cover object-[center_15%] scale-150"
+            />
           </motion.div>
 
           {/* Name & Title */}
