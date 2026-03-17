@@ -1,7 +1,7 @@
 import Layout from "@/components/Layout";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-import portrait from "@/assets/portrait.jpg";
+import bigPortrait from "@/assets/big_portrait.png";
 import {
   Server,
   Cloud,
@@ -19,135 +19,51 @@ import {
   Lightbulb,
   Zap,
 } from "lucide-react";
+import content from "@/data/content.json";
 
-/* ───────── animation helpers ───────── */
 const fadeUp = {
   initial: { opacity: 0, y: 30 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, margin: "-60px" },
 };
 
-/* ───────── data ───────── */
-const journeyMilestones = [
-  {
-    year: "2014",
-    title: "First Line of Code",
-    detail:
-      "Wrote my first Python script to automate a tedious homework task. Instantly hooked by the power of turning logic into action.",
-    icon: Terminal,
-  },
-  {
-    year: "2016",
-    title: "Fell in Love with Systems",
-    detail:
-      "Built a multiplayer game server in Java during university. Discovered the magic of networking, concurrency, and distributed state.",
-    icon: Rocket,
-  },
-  {
-    year: "2017",
-    title: "First Real Job",
-    detail:
-      "Joined CodeForge Inc. as a junior developer. Learned the discipline of production code, testing culture, and shipping under pressure.",
-    icon: Code2,
-  },
-  {
-    year: "2019",
-    title: "The Backend Deep-Dive",
-    detail:
-      "Moved to Orbital Labs and went deep into APIs, data pipelines, and infrastructure-as-code. Started thinking in systems, not features.",
-    icon: Layers,
-  },
-  {
-    year: "2021",
-    title: "Discovered Rust & Go",
-    detail:
-      "Picked up Go for microservices and Rust for performance-critical tools. These languages reshaped how I think about correctness and efficiency.",
-    icon: Lightbulb,
-  },
-  {
-    year: "2023",
-    title: "Leading at Scale",
-    detail:
-      "Now architecting event-driven platforms processing millions of events/sec. Leading teams, mentoring engineers, and shaping technical vision.",
-    icon: Zap,
-  },
-];
+const iconMap = {
+  Server,
+  Cloud,
+  Database,
+  Brain,
+  Gauge,
+  MapPin,
+  Code2,
+  Heart,
+  Layers,
+  Coffee,
+  Sparkles,
+  Terminal,
+  Rocket,
+  Lightbulb,
+  Zap,
+};
 
-const passions = [
-  {
-    icon: Server,
-    title: "Scalable Backends",
-    description:
-      "Designing systems that handle millions of requests without breaking a sweat.",
-  },
-  {
-    icon: Cloud,
-    title: "Cloud Architecture",
-    description:
-      "Building resilient, cost-effective infrastructure on AWS, GCP, and beyond.",
-  },
-  {
-    icon: Database,
-    title: "Data-Driven Systems",
-    description:
-      "Turning raw data into real-time insights through smart pipeline design.",
-  },
-  {
-    icon: Brain,
-    title: "AI & Automation",
-    description:
-      "Using LLMs and ML to augment engineering workflows and developer tooling.",
-  },
-  {
-    icon: Gauge,
-    title: "Performance",
-    description:
-      "Obsessing over latency, throughput, and efficiency at every layer of the stack.",
-  },
-];
-
-const explorations = [
-  "Multi-agent Systems",
-  "WebAssembly",
-  "Distributed Consensus",
-  "AI Developer Tooling",
-  "Edge Computing",
-  "Rust for Systems",
-  "Event Sourcing",
-  "Platform Engineering",
-  "LLM Orchestration",
-  "Observability",
-];
-
-const quickFacts = [
-  { label: "Experience", value: "7+ years", icon: Sparkles },
-  { label: "Favorite Language", value: "Go & Rust", icon: Code2 },
-  { label: "Passion", value: "Distributed Systems", icon: Heart },
-  { label: "Stack", value: "Go · React · K8s · AWS", icon: Layers },
-  { label: "Location", value: "San Francisco, CA", icon: MapPin },
-  { label: "Fuel", value: "Espresso ☕", icon: Coffee },
-];
-
-/* ───────── component ───────── */
 const About = () => {
   const [activeMilestone, setActiveMilestone] = useState<number | null>(null);
+  const t = content.about;
 
   return (
     <Layout>
       <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-16 sm:space-y-28">
-        {/* ── 0. Quick Facts ── */}
         <section>
           <motion.h2
             {...fadeUp}
             transition={{ duration: 0.5 }}
             className="text-2xl md:text-3xl font-bold text-gradient mb-8"
           >
-            Quick Facts
+            {t.quickFactsTitle}
           </motion.h2>
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {quickFacts.map((f, i) => {
-              const Icon = f.icon;
+            {t.quickFacts.map((f, i) => {
+              const Icon = iconMap[f.icon as keyof typeof iconMap] ?? Sparkles;
               return (
                 <motion.div
                   key={f.label}
@@ -173,7 +89,6 @@ const About = () => {
           </div>
         </section>
 
-        {/* ── 1. Hero Intro ── */}
         <section className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 items-center">
           <motion.div
             {...fadeUp}
@@ -181,19 +96,13 @@ const About = () => {
             className="space-y-5"
           >
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gradient leading-tight">
-              About Me
+              {t.heroTitle}
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              I'm a software engineer who builds systems at the intersection of
-              scale and simplicity. With 7+ years across the full stack — from
-              low-level Go and Rust services to polished React interfaces — I
-              craft infrastructure that's reliable, fast, and invisible to the
-              end user.
+              {t.heroParagraph1}
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              I believe the best engineering feels effortless. My mission is to
-              turn complex distributed problems into clean, observable, and
-              maintainable systems — and to help teams ship with confidence.
+              {t.heroParagraph2}
             </p>
           </motion.div>
 
@@ -205,31 +114,33 @@ const About = () => {
             <div className="relative group">
               <div className="absolute -inset-1 rounded-2xl bg-primary/20 blur-xl opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
               <img
-                src={portrait}
-                alt="Portrait"
+                src={bigPortrait}
+                alt={t.portraitAlt}
+                width={1200}
+                height={1202}
+                loading="lazy"
+                decoding="async"
                 className="relative w-64 h-80 object-cover rounded-2xl border border-border shadow-lg"
               />
             </div>
           </motion.div>
         </section>
 
-        {/* ── 2. Engineering Journey Timeline ── */}
         <section>
           <motion.h2
             {...fadeUp}
             transition={{ duration: 0.5 }}
             className="text-2xl md:text-3xl font-bold text-gradient mb-10"
           >
-            Engineering Journey
+            {t.journeyTitle}
           </motion.h2>
 
           <div className="relative">
-            {/* vertical line */}
             <div className="absolute left-[19px] top-0 bottom-0 w-px bg-border md:left-1/2 md:-translate-x-px" />
 
             <div className="space-y-10">
-              {journeyMilestones.map((m, i) => {
-                const Icon = m.icon;
+              {t.journeyMilestones.map((m, i) => {
+                const Icon = iconMap[m.icon as keyof typeof iconMap] ?? Sparkles;
                 const isRight = i % 2 === 1;
                 const isActive = activeMilestone === i;
 
@@ -244,12 +155,10 @@ const About = () => {
                     onMouseEnter={() => setActiveMilestone(i)}
                     onMouseLeave={() => setActiveMilestone(null)}
                   >
-                    {/* dot */}
                     <div className="relative z-10 flex-shrink-0 w-10 h-10 rounded-full glass border border-border flex items-center justify-center md:absolute md:left-1/2 md:-translate-x-1/2">
                       <Icon className="w-4 h-4 text-primary" />
                     </div>
 
-                    {/* card */}
                     <div
                       className={`flex-1 md:w-[calc(50%-2.5rem)] ${
                         isRight ? "md:mr-auto md:pr-10" : "md:ml-auto md:pl-10"
@@ -289,19 +198,18 @@ const About = () => {
           </div>
         </section>
 
-        {/* ── 3. What I Love Building ── */}
         <section>
           <motion.h2
             {...fadeUp}
             transition={{ duration: 0.5 }}
             className="text-2xl md:text-3xl font-bold text-gradient mb-10"
           >
-            What I Love Building
+            {t.passionsTitle}
           </motion.h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-            {passions.map((p, i) => {
-              const Icon = p.icon;
+            {t.passions.map((p, i) => {
+              const Icon = iconMap[p.icon as keyof typeof iconMap] ?? Sparkles;
               return (
                 <motion.div
                   key={p.title}
@@ -325,14 +233,13 @@ const About = () => {
           </div>
         </section>
 
-        {/* ── 4. Current Explorations ── */}
         <section>
           <motion.h2
             {...fadeUp}
             transition={{ duration: 0.5 }}
             className="text-2xl md:text-3xl font-bold text-gradient mb-8"
           >
-            Current Curiosities
+            {t.curiositiesTitle}
           </motion.h2>
 
           <motion.div
@@ -340,7 +247,7 @@ const About = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="flex flex-wrap gap-3"
           >
-            {explorations.map((tag, i) => (
+            {t.explorations.map((tag, i) => (
               <motion.span
                 key={tag}
                 initial={{ opacity: 0, scale: 0.85 }}
@@ -356,7 +263,6 @@ const About = () => {
           </motion.div>
         </section>
 
-        {/* spacer */}
         <div className="pb-12" />
       </div>
     </Layout>

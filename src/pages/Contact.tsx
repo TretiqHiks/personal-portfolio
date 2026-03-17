@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import content from "@/data/content.json";
 
 const fadeUp = {
   initial: { opacity: 0, y: 20 },
@@ -13,37 +14,18 @@ const fadeUp = {
   viewport: { once: true, margin: "-40px" },
 };
 
-const contactMethods = [
-  {
-    icon: Mail,
-    label: "Email",
-    value: "hello@alexchen.dev",
-    href: "mailto:hello@alexchen.dev",
-  },
-  {
-    icon: Linkedin,
-    label: "LinkedIn",
-    value: "/in/alexchen",
-    href: "https://linkedin.com/in/alexchen",
-  },
-  {
-    icon: Github,
-    label: "GitHub",
-    value: "@alexchen",
-    href: "https://github.com/alexchen",
-  },
-  {
-    icon: Globe,
-    label: "Blog",
-    value: "alexchen.dev/blog",
-    href: "https://alexchen.dev/blog",
-  },
-];
+const iconMap = {
+  Mail,
+  Linkedin,
+  Github,
+  Globe,
+};
 
 const Contact = () => {
   const { toast } = useToast();
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [sending, setSending] = useState(false);
+  const t = content.contact;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -54,8 +36,8 @@ const Contact = () => {
 
     if (!trimmedName || !trimmedEmail || !trimmedMessage) {
       toast({
-        title: "Missing fields",
-        description: "Please fill in all fields before sending.",
+        title: t.toasts.missingFieldsTitle,
+        description: t.toasts.missingFieldsDescription,
         variant: "destructive",
       });
       return;
@@ -63,21 +45,20 @@ const Contact = () => {
 
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmedEmail)) {
       toast({
-        title: "Invalid email",
-        description: "Please enter a valid email address.",
+        title: t.toasts.invalidEmailTitle,
+        description: t.toasts.invalidEmailDescription,
         variant: "destructive",
       });
       return;
     }
 
     setSending(true);
-    // Simulate send
     setTimeout(() => {
       setSending(false);
       setForm({ name: "", email: "", message: "" });
       toast({
-        title: "Message sent!",
-        description: "Thanks for reaching out. I'll get back to you soon.",
+        title: t.toasts.successTitle,
+        description: t.toasts.successDescription,
       });
     }, 1200);
   };
@@ -85,27 +66,23 @@ const Contact = () => {
   return (
     <Layout>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-10 sm:py-16 space-y-14 sm:space-y-20">
-        {/* ── 1. Intro ── */}
         <motion.section
           {...fadeUp}
           transition={{ duration: 0.5 }}
           className="text-center max-w-2xl mx-auto"
         >
           <h1 className="text-3xl md:text-4xl font-bold text-gradient mb-4">
-            Let's Connect
+            {t.title}
           </h1>
           <p className="text-muted-foreground text-lg leading-relaxed">
-            I'm always open to discussing new projects, creative collaborations,
-            or interesting technical challenges. Whether you have an idea, a
-            question, or just want to say hello — I'd love to hear from you.
+            {t.intro}
           </p>
         </motion.section>
 
-        {/* ── 2. Contact Methods ── */}
         <section>
           <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-4">
-            {contactMethods.map((method, i) => {
-              const Icon = method.icon;
+            {t.methods.map((method, i) => {
+              const Icon = iconMap[method.icon as keyof typeof iconMap] ?? Mail;
               return (
                 <motion.a
                   key={method.label}
@@ -134,40 +111,33 @@ const Contact = () => {
           </div>
         </section>
 
-        {/* ── 3. Contact Form ── */}
         <motion.section {...fadeUp} transition={{ duration: 0.5, delay: 0.1 }}>
           <div className="glass rounded-2xl p-5 sm:p-8 md:p-10 max-w-2xl mx-auto">
             <h2 className="text-xl font-semibold text-foreground mb-6 text-center">
-              Send a Message
+              {t.form.title}
             </h2>
             <form onSubmit={handleSubmit} className="space-y-5">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <Input
-                  placeholder="Your Name"
+                  placeholder={t.form.namePlaceholder}
                   value={form.name}
-                  onChange={(e) =>
-                    setForm((f) => ({ ...f, name: e.target.value }))
-                  }
+                  onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
                   maxLength={100}
                   className="rounded-xl bg-background/50 border-border focus:border-primary/40 placeholder:text-muted-foreground/50"
                 />
                 <Input
                   type="email"
-                  placeholder="Your Email"
+                  placeholder={t.form.emailPlaceholder}
                   value={form.email}
-                  onChange={(e) =>
-                    setForm((f) => ({ ...f, email: e.target.value }))
-                  }
+                  onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))}
                   maxLength={255}
                   className="rounded-xl bg-background/50 border-border focus:border-primary/40 placeholder:text-muted-foreground/50"
                 />
               </div>
               <Textarea
-                placeholder="Your message..."
+                placeholder={t.form.messagePlaceholder}
                 value={form.message}
-                onChange={(e) =>
-                  setForm((f) => ({ ...f, message: e.target.value }))
-                }
+                onChange={(e) => setForm((f) => ({ ...f, message: e.target.value }))}
                 maxLength={1000}
                 rows={5}
                 className="rounded-xl bg-background/50 border-border focus:border-primary/40 placeholder:text-muted-foreground/50 resize-none"
@@ -178,7 +148,7 @@ const Contact = () => {
                   disabled={sending}
                   className="rounded-full px-8 py-2.5 text-sm font-medium gap-2"
                 >
-                  {sending ? "Sending…" : "Send Message"}
+                  {sending ? t.form.sending : t.form.send}
                   <Send className="w-4 h-4" />
                 </Button>
               </div>
@@ -186,7 +156,6 @@ const Contact = () => {
           </div>
         </motion.section>
 
-        {/* ── 4. Availability Note ── */}
         <motion.section
           {...fadeUp}
           transition={{ duration: 0.5, delay: 0.15 }}
@@ -199,26 +168,22 @@ const Contact = () => {
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-400" />
               </span>
               <span className="text-sm font-semibold text-foreground">
-                Currently Available
+                {t.availability.title}
               </span>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              I'm open to full-time opportunities, freelance collaborations, and
-              technical discussions. Feel free to reach out — I typically respond
-              within 24 hours.
+              {t.availability.description}
             </p>
             <div className="flex flex-wrap justify-center gap-2 mt-4">
-              {["Job Opportunities", "Collaborations", "Technical Discussions"].map(
-                (tag) => (
-                  <span
-                    key={tag}
-                    className="text-xs px-3 py-1 rounded-full bg-primary/10 text-primary font-medium flex items-center gap-1"
-                  >
-                    <Sparkles className="w-3 h-3" />
-                    {tag}
-                  </span>
-                )
-              )}
+              {t.availability.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="text-xs px-3 py-1 rounded-full bg-primary/10 text-primary font-medium flex items-center gap-1"
+                >
+                  <Sparkles className="w-3 h-3" />
+                  {tag}
+                </span>
+              ))}
             </div>
           </div>
         </motion.section>

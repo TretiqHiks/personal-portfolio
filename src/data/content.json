@@ -1,0 +1,441 @@
+{
+  "navbar": {
+    "mobileInitials": "SH",
+    "links": [
+      {
+        "to": "/",
+        "label": "Home"
+      },
+      {
+        "to": "/about",
+        "label": "About"
+      },
+      {
+        "to": "/experience",
+        "label": "Experience"
+      },
+      {
+        "to": "/projects",
+        "label": "Projects"
+      },
+      {
+        "to": "/contact",
+        "label": "Contact"
+      }
+    ],
+    "toggleAriaLabel": "Toggle menu"
+  },
+  "statusBubble": {
+    "text": "Open to opportunities"
+  },
+  "home": {
+    "name": "Svetoslav Hristov",
+    "title": "Software Engineer",
+    "bio": "Curious by nature and structured in practice, I turn complex challenges into clear, reliable systems. I work across software development, cloud-native platforms, DevOps, data, and automation.",
+    "quote": "Build with creativity, ship with precision.",
+    "ctaPrimary": "View Projects",
+    "ctaSecondary": "Experience",
+    "portraitAlt": "Svetoslav Hristov"
+  },
+  "about": {
+    "quickFactsTitle": "Quick Facts",
+    "heroTitle": "About Me",
+    "heroParagraph1": "I am a software engineer based in Eindhoven, Netherlands. I enjoy designing practical systems that connect product needs with robust technical execution.",
+    "heroParagraph2": "My work spans backend engineering, serverless cloud platforms, CI/CD, observability, data pipelines, and RPA workflows. I focus on reliability, clarity, and long-term maintainability.",
+    "journeyTitle": "Engineering Journey",
+    "passionsTitle": "What I Love Building",
+    "curiositiesTitle": "Current Curiosities",
+    "portraitAlt": "Svetoslav Hristov portrait",
+    "journeyMilestones": [
+      {
+        "year": "2020",
+        "title": "BAS Studies Started",
+        "detail": "Started Bachelor of Applied Sciences at Fontys University in Eindhoven.",
+        "icon": "Lightbulb"
+      },
+      {
+        "year": "2023",
+        "title": "Software Developer Internship",
+        "detail": "At Genzai and ViaLuxury, built an event-driven data transfer module and supported personalized marketing via unified customer profiles.",
+        "icon": "Rocket"
+      },
+      {
+        "year": "2023",
+        "title": "Student Assistant",
+        "detail": "Supported first-semester Fontys ICT students with technical guidance during workshops and assignments.",
+        "icon": "Code2"
+      },
+      {
+        "year": "2024",
+        "title": "Technical Lead",
+        "detail": "At Teamium (Fontys ICT Open-learning), led the transition from proof-of-concept to production-ready architecture and mentored teammates.",
+        "icon": "Layers"
+      },
+      {
+        "year": "2024",
+        "title": "IT Internship at Homed-IQ",
+        "detail": "Designed a proof-of-concept for automated testing, deployment, and monitoring for a serverless backend with stronger observability.",
+        "icon": "Terminal"
+      },
+      {
+        "year": "2025",
+        "title": "Developer at Homed-IQ",
+        "detail": "Maintaining and improving AWS Lambda backend services, RPA workflows, monitoring and alerting, and data pipelines for business insights.",
+        "icon": "Zap"
+      }
+    ],
+    "passions": [
+      {
+        "title": "Serverless Systems",
+        "description": "Building scalable backend services on AWS Lambda and event-driven patterns.",
+        "icon": "Server"
+      },
+      {
+        "title": "Cloud & DevOps",
+        "description": "Designing CI/CD pipelines and observability-first deployments for reliable delivery.",
+        "icon": "Cloud"
+      },
+      {
+        "title": "Data Engineering",
+        "description": "Designing data flows and dashboards that support practical business decisions.",
+        "icon": "Database"
+      },
+      {
+        "title": "Automation",
+        "description": "Implementing RPA workflows to streamline repetitive operational processes.",
+        "icon": "Brain"
+      },
+      {
+        "title": "System Reliability",
+        "description": "Improving monitoring, alerting, and operational resilience in production.",
+        "icon": "Gauge"
+      }
+    ],
+    "explorations": [
+      "Event-Driven Architecture",
+      "Serverless Design",
+      "DevOps Automation",
+      "Observability",
+      "RPA Workflows",
+      "Data Pipelines",
+      "Distributed Systems",
+      "System Architecture",
+      "AI Video Generation",
+      "Business Intelligence"
+    ],
+    "quickFacts": [
+      {
+        "label": "Experience",
+        "value": "3+ years",
+        "icon": "Sparkles"
+      },
+      {
+        "label": "Location",
+        "value": "Eindhoven, Netherlands",
+        "icon": "MapPin"
+      },
+      {
+        "label": "Languages",
+        "value": "Bulgarian, English, Dutch",
+        "icon": "Heart"
+      },
+      {
+        "label": "Core Stack",
+        "value": "Python ? AWS ? TypeScript",
+        "icon": "Layers"
+      },
+      {
+        "label": "Domain",
+        "value": "Cloud, Data, Automation",
+        "icon": "Code2"
+      },
+      {
+        "label": "Interests",
+        "value": "AI & System Design",
+        "icon": "Coffee"
+      }
+    ]
+  },
+  "experiencePage": {
+    "title": "Experience",
+    "skillMatrixTitle": "Skill Matrix"
+  },
+  "projectsPage": {
+    "title": "Projects",
+    "activeLabel": "Active",
+    "pastLabel": "Past"
+  },
+  "projectDetailPage": {
+    "notFoundTitle": "Project not found",
+    "backToProjects": "Back to Projects",
+    "sourceCode": "Source Code",
+    "liveDemo": "Live Demo",
+    "overviewTitle": "Overview",
+    "featuresTitle": "Key Features",
+    "highlightsTitle": "Technical Highlights"
+  },
+  "contact": {
+    "title": "Let's Connect",
+    "intro": "I am open to discussing software engineering roles, backend and cloud projects, and automation initiatives. Feel free to reach out for opportunities or technical collaboration.",
+    "methods": [
+      {
+        "label": "Email",
+        "value": "svetoslav.hristov2001@gmail.com",
+        "href": "mailto:svetoslav.hristov2001@gmail.com",
+        "icon": "Mail"
+      },
+      {
+        "label": "Phone",
+        "value": "+31 658 864 548",
+        "href": "tel:+31658864548",
+        "icon": "Globe"
+      },
+      {
+        "label": "Location",
+        "value": "Eindhoven, Netherlands",
+        "href": "https://maps.google.com/?q=Eindhoven+Netherlands",
+        "icon": "Globe"
+      },
+      {
+        "label": "References",
+        "value": "Available upon request",
+        "href": "mailto:svetoslav.hristov2001@gmail.com",
+        "icon": "Mail"
+      }
+    ],
+    "form": {
+      "title": "Send a Message",
+      "namePlaceholder": "Your Name",
+      "emailPlaceholder": "Your Email",
+      "messagePlaceholder": "Your message...",
+      "sending": "Sending...",
+      "send": "Send Message"
+    },
+    "availability": {
+      "title": "Currently Available",
+      "description": "I am open to full-time opportunities, freelance collaborations, and technical discussions. Feel free to reach out - I typically respond within 24 hours.",
+      "tags": [
+        "Job Opportunities",
+        "Collaborations",
+        "Technical Discussions"
+      ]
+    },
+    "toasts": {
+      "missingFieldsTitle": "Missing fields",
+      "missingFieldsDescription": "Please fill in all fields before sending.",
+      "invalidEmailTitle": "Invalid email",
+      "invalidEmailDescription": "Please enter a valid email address.",
+      "successTitle": "Message sent!",
+      "successDescription": "Thanks for reaching out. I will get back to you soon."
+    }
+  },
+  "notFound": {
+    "message": "Oops! Page not found",
+    "returnHome": "Return to Home"
+  },
+  "portfolio": {
+    "experiences": [
+      {
+        "id": "exp-1",
+        "role": "Developer",
+        "company": "Homed-IQ, Amsterdam",
+        "period": "Feb 2025 - Present",
+        "description": "Maintain and improve a serverless AWS Lambda backend used across core business functions, build RPA workflows, and support monitoring, alerting, and data pipelines.",
+        "skills": [
+          "Python",
+          "AWS Lambda",
+          "RPA",
+          "Monitoring",
+          "Data Pipelines"
+        ]
+      },
+      {
+        "id": "exp-2",
+        "role": "IT Intern",
+        "company": "Homed-IQ, Amsterdam",
+        "period": "Sep 2024 - Feb 2025",
+        "description": "Designed and implemented a proof-of-concept for automated testing, deployment, and monitoring of a serverless backend with improved observability and CI/CD workflows.",
+        "skills": [
+          "AWS",
+          "CI/CD",
+          "Docker",
+          "GitHub Actions",
+          "Observability"
+        ]
+      },
+      {
+        "id": "exp-3",
+        "role": "Technical Lead",
+        "company": "Teamium | Fontys ICT Open-learning, Eindhoven",
+        "period": "Feb 2024 - Jul 2024",
+        "description": "Led technical transition of a proof-of-concept into a production-ready system, mentored teammates, and aligned architecture decisions with stakeholders.",
+        "skills": [
+          "System Architecture",
+          "Technical Leadership",
+          "Mentoring",
+          "Stakeholder Collaboration"
+        ]
+      },
+      {
+        "id": "exp-4",
+        "role": "Software Developer Intern",
+        "company": "Genzai | ViaLuxury, Venlo",
+        "period": "Feb 2023 - Jul 2023",
+        "description": "Built an event-driven data transfer module to aggregate user data across platforms and enable personalized, data-driven marketing segmentation.",
+        "skills": [
+          "Event-Driven Systems",
+          "Data Integration",
+          "SQL",
+          "Automation"
+        ]
+      }
+    ],
+    "skillCategories": [
+      {
+        "name": "Languages",
+        "skills": [
+          "Python",
+          "Java",
+          "TypeScript",
+          "SQL"
+        ]
+      },
+      {
+        "name": "Frameworks",
+        "skills": [
+          "Spring Boot",
+          "Hibernate",
+          "Node.js",
+          "NestJS",
+          "Next.js",
+          "React.js"
+        ]
+      },
+      {
+        "name": "Cloud & DevOps",
+        "skills": [
+          "AWS",
+          "Docker",
+          "GitHub Actions",
+          "CI/CD"
+        ]
+      },
+      {
+        "name": "Databases",
+        "skills": [
+          "MySQL",
+          "PostgreSQL",
+          "DynamoDB",
+          "Apache Cassandra"
+        ]
+      },
+      {
+        "name": "Automation & Messaging",
+        "skills": [
+          "UiPath",
+          "Zoho RPA",
+          "RabbitMQ"
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "id": "serverless-backend-ops",
+        "title": "Serverless Backend Operations",
+        "summary": "Maintenance and improvement of an AWS Lambda backend used across core business functions.",
+        "description": "A production-focused backend engineering effort at Homed-IQ centered on reliability, maintainability, and operational support in a serverless AWS environment.",
+        "techStack": [
+          "Python",
+          "AWS Lambda",
+          "AWS",
+          "Monitoring",
+          "Alerting"
+        ],
+        "features": [
+          "Maintenance and iterative improvement of serverless backend services",
+          "Real-time monitoring and alerting for high availability",
+          "Support for data pipelines and business insight dashboards"
+        ],
+        "challenges": [
+          "Balancing rapid business needs with long-term backend stability",
+          "Improving operational visibility across critical workflows",
+          "Supporting data consistency across cloud-native components"
+        ],
+        "image": "project-pulse",
+        "status": "active"
+      },
+      {
+        "id": "rpa-process-automation",
+        "title": "RPA Process Automation",
+        "summary": "Automated operational workflows to reduce manual effort and improve consistency.",
+        "description": "Designed and implemented RPA workflows to streamline business operations and increase process reliability.",
+        "techStack": [
+          "UiPath",
+          "Zoho RPA",
+          "Python",
+          "Process Automation"
+        ],
+        "features": [
+          "Automated repetitive operational tasks",
+          "Improved process consistency and speed",
+          "Integrated automation with existing business flows"
+        ],
+        "challenges": [
+          "Translating manual business steps into robust automation",
+          "Ensuring stable execution in changing operational contexts",
+          "Aligning technical automation with stakeholder expectations"
+        ],
+        "image": "project-vault",
+        "status": "active"
+      },
+      {
+        "id": "event-driven-customer-data",
+        "title": "Event-Driven Customer Data Module",
+        "summary": "Aggregated user data across platforms to enable unified customer profiles.",
+        "description": "Internship project focused on event-driven data transfer and segmentation support for more effective, personalized marketing.",
+        "techStack": [
+          "Event-Driven Architecture",
+          "SQL",
+          "Data Integration"
+        ],
+        "features": [
+          "Cross-platform user data aggregation",
+          "Unified profile generation",
+          "Improved targeting through data-driven segmentation"
+        ],
+        "challenges": [
+          "Designing reliable data flow between multiple systems",
+          "Handling profile consistency across sources",
+          "Collaborating with marketing and data teams on outcomes"
+        ],
+        "image": "project-gridflow",
+        "status": "past"
+      },
+      {
+        "id": "cicd-observability-poc",
+        "title": "CI/CD and Observability PoC",
+        "summary": "Proof-of-concept for automated testing, deployment, and monitoring of a serverless backend.",
+        "description": "Created a practical foundation for production-ready deployment with CI/CD and observability improvements during the Homed-IQ internship.",
+        "techStack": [
+          "AWS",
+          "Docker",
+          "GitHub Actions",
+          "CI/CD",
+          "Observability"
+        ],
+        "features": [
+          "Automated testing and deployment workflow",
+          "Monitoring pipeline for service health and behavior",
+          "Improved visibility into critical business operations"
+        ],
+        "challenges": [
+          "Designing a PoC that could scale to production expectations",
+          "Integrating observability without disrupting delivery speed",
+          "Aligning technical quality gates with operational needs"
+        ],
+        "image": "project-spectra",
+        "status": "past"
+      }
+    ]
+  }
+}

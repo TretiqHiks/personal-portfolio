@@ -3,14 +3,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
+import content from "@/data/content.json";
 
-const links = [
-  { to: "/", label: "Home" },
-  { to: "/about", label: "About" },
-  { to: "/experience", label: "Experience" },
-  { to: "/projects", label: "Projects" },
-  { to: "/contact", label: "Contact" },
-];
+const links = content.navbar.links;
 
 const Navbar = () => {
   const isMobile = useIsMobile();
@@ -43,11 +38,13 @@ const Navbar = () => {
       {/* Mobile nav */}
       {isMobile && (
         <div className="w-full flex justify-between items-center">
-          <span className="text-sm font-semibold text-foreground pl-1">AK</span>
+          <span className="text-sm font-semibold text-foreground pl-1">
+            {content.navbar.mobileInitials}
+          </span>
           <button
             onClick={() => setOpen(!open)}
             className="glass rounded-full p-2.5 glow-primary"
-            aria-label="Toggle menu"
+            aria-label={content.navbar.toggleAriaLabel}
           >
             {open ? <X className="w-5 h-5 text-foreground" /> : <Menu className="w-5 h-5 text-foreground" />}
           </button>

@@ -13,7 +13,7 @@ const Layout = ({ children, noScroll }: LayoutProps) => {
     <div className={`min-h-screen relative ${noScroll ? "h-screen overflow-hidden" : ""}`}>
       {/* Tech background */}
       <div
-        className="fixed inset-0 z-0 opacity-[0.04] pointer-events-none"
+        className="absolute inset-0 z-0 opacity-[0.04] pointer-events-none"
         style={{
           backgroundImage: `url(${techBg})`,
           backgroundSize: "cover",

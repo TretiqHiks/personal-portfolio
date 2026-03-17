@@ -2,6 +2,7 @@ import Layout from "@/components/Layout";
 import { motion } from "framer-motion";
 import { experiences, skillCategories } from "@/data/portfolio";
 import { useState } from "react";
+import content from "@/data/content.json";
 
 const fadeUp = {
   initial: { opacity: 0, y: 20 },
@@ -10,6 +11,7 @@ const fadeUp = {
 
 const Experience = () => {
   const [highlightedSkills, setHighlightedSkills] = useState<string[]>([]);
+  const t = content.experiencePage;
 
   return (
     <Layout>
@@ -19,7 +21,7 @@ const Experience = () => {
           transition={{ duration: 0.5 }}
           className="text-3xl md:text-4xl font-bold text-gradient mb-12"
         >
-          Experience
+          {t.title}
         </motion.h1>
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12">
@@ -85,7 +87,7 @@ const Experience = () => {
               className="sticky top-8"
             >
               <h2 className="text-lg font-semibold text-foreground mb-6">
-                Skill Matrix
+                {t.skillMatrixTitle}
               </h2>
               <div className="space-y-5">
                 {skillCategories.map((category) => (

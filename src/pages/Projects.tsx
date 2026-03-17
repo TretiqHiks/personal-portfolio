@@ -4,6 +4,7 @@ import { projects } from "@/data/portfolio";
 import { Link } from "react-router-dom";
 import { ArrowUpRight, Github } from "lucide-react";
 import { getProjectImage } from "@/lib/projectImages";
+import content from "@/data/content.json";
 
 const fadeUp = {
   initial: { opacity: 0, y: 20 },
@@ -67,6 +68,7 @@ const ProjectCard = ({ project, i }: { project: typeof projects[0]; i: number })
 const Projects = () => {
   const activeProjects = projects.filter((p) => p.status === "active");
   const pastProjects = projects.filter((p) => p.status === "past");
+  const t = content.projectsPage;
 
   return (
     <Layout>
@@ -76,7 +78,7 @@ const Projects = () => {
           transition={{ duration: 0.5 }}
           className="text-3xl md:text-4xl font-bold text-gradient mb-12"
         >
-          Projects
+          {t.title}
         </motion.h1>
 
         {/* Active Projects */}
@@ -86,7 +88,7 @@ const Projects = () => {
           className="text-xl font-semibold text-foreground mb-6 flex items-center gap-2"
         >
           <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-          Active
+          {t.activeLabel}
         </motion.h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
           {activeProjects.map((project, i) => (
@@ -101,7 +103,7 @@ const Projects = () => {
           className="text-xl font-semibold text-foreground mb-6 flex items-center gap-2"
         >
           <span className="w-2 h-2 rounded-full bg-muted-foreground" />
-          Past
+          {t.pastLabel}
         </motion.h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {pastProjects.map((project, i) => (
