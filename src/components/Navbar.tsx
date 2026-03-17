@@ -64,7 +64,7 @@ const Navbar = () => {
             transition={{ duration: 0.2 }}
             className="fixed inset-x-0 top-[72px] z-50 px-4"
           >
-            <div className="glass-strong rounded-2xl p-3 flex flex-col gap-1 glow-blue">
+            <div className="glass-strong rounded-2xl p-3 flex flex-col gap-1 glow-primary">
               {links.map((link) => (
                 <NavLink
                   key={link.to}

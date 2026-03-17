@@ -66,7 +66,7 @@ const Index = () => {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="flex flex-col sm:flex-row gap-3 mt-2 w-full sm:w-auto"
           >
-            <Button asChild size="lg" className="rounded-full gap-2 glow-blue">
+            <Button asChild size="lg" className="rounded-full gap-2 glow-primary">
               <Link to="/projects">
                 View Projects <ArrowRight className="w-4 h-4" />
               </Link>

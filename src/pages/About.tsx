@@ -308,7 +308,7 @@ const About = () => {
                   {...fadeUp}
                   transition={{ duration: 0.45, delay: i * 0.07 }}
                   whileHover={{ y: -6, scale: 1.03 }}
-                  className="glass rounded-2xl p-6 cursor-default group transition-all duration-300 hover:glow-blue hover:border-primary/20"
+                  className="glass rounded-2xl p-6 cursor-default group transition-all duration-300 hover:glow-primary hover:border-primary/20"
                 >
                   <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
                     <Icon className="w-5 h-5 text-primary" />

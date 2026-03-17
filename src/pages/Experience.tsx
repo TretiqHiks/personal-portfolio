@@ -101,7 +101,7 @@ const Experience = () => {
                             key={skill}
                             className={`text-xs px-2.5 py-1 rounded-lg font-medium transition-all duration-200 ${
                               isHighlighted
-                                ? "bg-primary text-primary-foreground glow-blue scale-105"
+                                ? "bg-primary text-primary-foreground glow-primary scale-105"
                                 : highlightedSkills.length > 0
                                 ? "glass text-muted-foreground/50"
                                 : "glass text-secondary-foreground hover:text-foreground hover:border-primary/30"

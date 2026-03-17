@@ -20,7 +20,7 @@ const ProjectCard = ({ project, i }: { project: typeof projects[0]; i: number })
     >
       <Link
         to={`/projects/${project.id}`}
-        className="block glass rounded-2xl overflow-hidden h-full transition-all duration-300 hover:glow-blue hover:border-primary/20 group"
+        className="block glass rounded-2xl overflow-hidden h-full transition-all duration-300 hover:glow-primary hover:border-primary/20 group"
       >
         {img && (
           <div className="w-full h-40 overflow-hidden">

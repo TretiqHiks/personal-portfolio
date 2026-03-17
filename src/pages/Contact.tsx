@@ -115,7 +115,7 @@ const Contact = () => {
                   {...fadeUp}
                   transition={{ duration: 0.4, delay: i * 0.07 }}
                   whileHover={{ y: -6, scale: 1.03 }}
-                  className="glass rounded-2xl p-5 flex flex-col items-center gap-3 text-center cursor-pointer group transition-all duration-300 hover:glow-blue hover:border-primary/20"
+                  className="glass rounded-2xl p-5 flex flex-col items-center gap-3 text-center cursor-pointer group transition-all duration-300 hover:glow-primary hover:border-primary/20"
                 >
                   <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                     <Icon className="w-5 h-5 text-primary" />
