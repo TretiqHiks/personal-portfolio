@@ -15,7 +15,7 @@ const Index = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
-            className="w-28 h-28 rounded-full glass glow-blue overflow-hidden"
+            className="w-28 h-28 rounded-full glass glow-primary overflow-hidden"
           >
             <img
               src={portrait}
