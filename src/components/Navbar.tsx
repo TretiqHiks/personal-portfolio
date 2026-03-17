@@ -46,7 +46,7 @@ const Navbar = () => {
           <span className="text-sm font-semibold text-foreground pl-1">AK</span>
           <button
             onClick={() => setOpen(!open)}
-            className="glass rounded-full p-2.5 glow-blue"
+            className="glass rounded-full p-2.5 glow-primary"
             aria-label="Toggle menu"
           >
             {open ? <X className="w-5 h-5 text-foreground" /> : <Menu className="w-5 h-5 text-foreground" />}
