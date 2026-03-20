@@ -8,6 +8,7 @@ const imageMap: Record<string, string> = {
   "project-vault": projectVault,
   "project-gridflow": projectGridflow,
   "project-spectra": projectSpectra,
+  "project-lambdaforge": projectVault,
 };
 
 export const getProjectImage = (key?: string): string | undefined => {

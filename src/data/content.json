@@ -510,6 +510,29 @@
         "github": "https://github.com/TretiqHiks/tracepack",
         "demo": null,
         "image": "project-tracepack"
+      },
+      {
+        "id": "lambdaforge",
+        "title": "lambdaforge",
+        "status": "past",
+        "summary": "Open-source Python CLI for local AWS Lambda testing. Generates realistic trigger event payloads and invokes handlers locally with moto-based AWS service mocking — no Docker, no SAM.",
+        "description": "lambdaforge eliminates the friction of local Lambda testing. It generates complete, schema-accurate event payloads for API Gateway, SQS, S3, SNS, and EventBridge triggers, and invokes your handler directly in-process. AWS service calls (DynamoDB, S3, SSM, SQS, SNS) can be intercepted by moto with a single flag. Published on PyPI.",
+        "techStack": ["Python", "AWS Lambda", "CLI", "moto", "boto3", "PyPI", "Developer Tooling"],
+        "features": [
+          "Generates schema-accurate event payloads for API Gateway, SQS, S3, SNS, and EventBridge triggers",
+          "Invokes Lambda handlers directly in-process — no Docker or SAM required",
+          "moto-based AWS service mocking with a single flag (DynamoDB, S3, SSM, SQS, SNS)",
+          "Published to PyPI for easy installation via pip"
+        ],
+        "challenges": [
+          "Designing payload schemas that closely match real AWS trigger shapes across multiple event sources",
+          "Integrating moto transparently without requiring changes to the user's handler code",
+          "Packaging and publishing a developer tool to PyPI with a clean, minimal CLI interface"
+        ],
+        "github": "https://github.com/TretiqHiks/lambdaforge",
+        "pypi": "https://pypi.org/project/lambdaforge/",
+        "demo": null,
+        "image": "project-lambdaforge"
       }
     ]
   }
