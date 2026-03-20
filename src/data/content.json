@@ -486,6 +486,30 @@
         ],
         "image": "project-spectra",
         "status": "past"
+      },
+      {
+        "id": "tracepack",
+        "title": "Tracepack",
+        "status": "past",
+        "summary": "Multi-household food expiry tracker with a daily email digest and weekly waste summary. Households share a join code, log groceries with expiry dates, and get alerted before items go bad.",
+        "description": "Tracepack started as a frustration with food waste at home — buying the same spinach twice because nobody tracked the first bag. The app lets multiple people in a household log groceries, see a live urgency dashboard (expires today / this week / fine), and receive a daily digest email listing everything expiring within 2 days. A weekly summary email shows how many items were actually wasted, creating a feedback loop that changes behaviour over time.",
+        "techStack": ["Next.js", "FastAPI", "PostgreSQL", "Docker", "APScheduler", "Jinja2", "Tailwind CSS"],
+        "features": [
+          "Multi-household with invite code join flow",
+          "Urgency-grouped dashboard (expires soon / this week / fine)",
+          "Daily email digest of items expiring within 2 days",
+          "Weekly waste summary email (only sent if items were wasted)",
+          "Monthly stats chart (added vs consumed vs wasted)",
+          "Configurable SMTP — ships with Mailhog for local testing"
+        ],
+        "challenges": [
+          "Designing the soft-delete + waste stats relationship so deleted items don't silently disappear from historical counts",
+          "APScheduler timezone handling — choosing UTC-based cron jobs with a configurable hour to avoid surprises in production",
+          "Keeping the email digest useful without being noisy: skipping sends when there are no urgent items"
+        ],
+        "github": "https://github.com/TretiqHiks/tracepack",
+        "demo": null,
+        "image": "project-tracepack"
       }
     ]
   }
