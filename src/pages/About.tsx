@@ -18,6 +18,7 @@ import {
   Rocket,
   Lightbulb,
   Zap,
+  ChevronDown,
 } from "lucide-react";
 import content from "@/data/content.json";
 
@@ -48,47 +49,13 @@ const iconMap = {
 const About = () => {
   const [activeMilestone, setActiveMilestone] = useState<number | null>(null);
   const t = content.about;
+  const featuredPassions = t.passions.slice(0, 3);
 
   return (
     <Layout>
       <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-16 sm:space-y-28">
-        <section>
-          <motion.h2
-            {...fadeUp}
-            transition={{ duration: 0.5 }}
-            className="text-2xl md:text-3xl font-bold text-gradient mb-8"
-          >
-            {t.quickFactsTitle}
-          </motion.h2>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {t.quickFacts.map((f, i) => {
-              const Icon = iconMap[f.icon as keyof typeof iconMap] ?? Sparkles;
-              return (
-                <motion.div
-                  key={f.label}
-                  {...fadeUp}
-                  transition={{ duration: 0.4, delay: i * 0.06 }}
-                  whileHover={{ scale: 1.04 }}
-                  className="glass rounded-2xl p-4 flex items-center gap-3 cursor-default"
-                >
-                  <div className="w-9 h-9 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
-                    <Icon className="w-4 h-4 text-accent" />
-                  </div>
-                  <div>
-                    <p className="text-[11px] uppercase tracking-wider text-muted-foreground font-medium">
-                      {f.label}
-                    </p>
-                    <p className="text-sm font-semibold text-foreground">
-                      {f.value}
-                    </p>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
-        </section>
-
+        {/* 1. Hero / Portrait — moved to first */}
         <section className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 items-center">
           <motion.div
             {...fadeUp}
@@ -126,6 +93,45 @@ const About = () => {
           </motion.div>
         </section>
 
+        {/* 2. Quick Facts — moved to second */}
+        <section>
+          <motion.h2
+            {...fadeUp}
+            transition={{ duration: 0.5 }}
+            className="text-2xl md:text-3xl font-bold text-gradient mb-8"
+          >
+            {t.quickFactsTitle}
+          </motion.h2>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            {t.quickFacts.map((f, i) => {
+              const Icon = iconMap[f.icon as keyof typeof iconMap] ?? Sparkles;
+              return (
+                <motion.div
+                  key={f.label}
+                  {...fadeUp}
+                  transition={{ duration: 0.4, delay: i * 0.06 }}
+                  whileHover={{ scale: 1.04 }}
+                  className="glass rounded-2xl p-4 flex items-center gap-3 cursor-default"
+                >
+                  <div className="w-9 h-9 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
+                    <Icon className="w-4 h-4 text-accent" />
+                  </div>
+                  <div>
+                    <p className="text-[11px] uppercase tracking-wider text-muted-foreground font-medium">
+                      {f.label}
+                    </p>
+                    <p className="text-sm font-semibold text-foreground">
+                      {f.value}
+                    </p>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </section>
+
+        {/* 3. Journey Timeline */}
         <section>
           <motion.h2
             {...fadeUp}
@@ -166,16 +172,26 @@ const About = () => {
                     >
                       <motion.div
                         whileHover={{ scale: 1.02 }}
+                        onClick={() => setActiveMilestone(isActive ? null : i)}
                         className={`glass rounded-2xl p-5 cursor-pointer transition-all duration-300 ${
                           isActive ? "glow-primary border-primary/30" : ""
                         }`}
                       >
-                        <span className="text-xs font-semibold text-accent tracking-wider uppercase">
-                          {m.year}
-                        </span>
-                        <h3 className="text-base font-semibold text-foreground mt-1">
-                          {m.title}
-                        </h3>
+                        <div className="flex items-start justify-between gap-2">
+                          <div>
+                            <span className="text-xs font-semibold text-accent tracking-wider uppercase">
+                              {m.year}
+                            </span>
+                            <h3 className="text-base font-semibold text-foreground mt-1">
+                              {m.title}
+                            </h3>
+                          </div>
+                          <ChevronDown
+                            className={`w-4 h-4 text-muted-foreground flex-shrink-0 mt-1 transition-transform duration-200 ${
+                              isActive ? "rotate-180" : ""
+                            }`}
+                          />
+                        </div>
                         <AnimatePresence>
                           {isActive && (
                             <motion.p
@@ -198,6 +214,7 @@ const About = () => {
           </div>
         </section>
 
+        {/* 4. Passions */}
         <section>
           <motion.h2
             {...fadeUp}
@@ -207,8 +224,8 @@ const About = () => {
             {t.passionsTitle}
           </motion.h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-            {t.passions.map((p, i) => {
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {featuredPassions.map((p, i) => {
               const Icon = iconMap[p.icon as keyof typeof iconMap] ?? Sparkles;
               return (
                 <motion.div
@@ -216,15 +233,15 @@ const About = () => {
                   {...fadeUp}
                   transition={{ duration: 0.45, delay: i * 0.07 }}
                   whileHover={{ y: -6, scale: 1.03 }}
-                  className="glass rounded-2xl p-6 cursor-default group transition-all duration-300 hover:glow-primary hover:border-primary/20"
+                  className="glass rounded-2xl p-8 min-h-[220px] cursor-default group transition-all duration-300 hover:glow-primary hover:border-primary/20 border-t-2 border-primary"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                    <Icon className="w-5 h-5 text-primary" />
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
+                    <Icon className="w-6 h-6 text-primary" />
                   </div>
-                  <h3 className="text-sm font-semibold text-foreground mb-1">
+                  <h3 className="text-base font-semibold text-foreground mb-2">
                     {p.title}
                   </h3>
-                  <p className="text-xs text-muted-foreground leading-relaxed">
+                  <p className="text-sm text-muted-foreground leading-relaxed">
                     {p.description}
                   </p>
                 </motion.div>
@@ -233,6 +250,7 @@ const About = () => {
           </div>
         </section>
 
+        {/* 5. Curiosities */}
         <section>
           <motion.h2
             {...fadeUp}
