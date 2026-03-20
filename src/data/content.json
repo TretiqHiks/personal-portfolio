@@ -31,7 +31,7 @@
   "home": {
     "name": "Svetoslav Hristov",
     "title": "Software Engineer",
-    "bio": "Curious by nature and structured in practice, I turn complex challenges into clear, reliable systems. I work across software development, cloud-native platforms, DevOps, data, and automation.",
+    "bio": "Curious by nature and structured in practice, I turn complex challenges into clear, reliable systems. I work across software development, cloud-native platforms, DevOps, data and automation.",
     "quote": "Build with creativity, ship with precision.",
     "ctaPrimary": "View Projects",
     "ctaSecondary": "Experience",
@@ -40,23 +40,41 @@
   "about": {
     "quickFactsTitle": "Quick Facts",
     "heroTitle": "About Me",
-    "heroParagraph1": "I am a software engineer based in Eindhoven, Netherlands. I enjoy designing practical systems that connect product needs with robust technical execution.",
-    "heroParagraph2": "My work spans backend engineering, serverless cloud platforms, CI/CD, observability, data pipelines, and RPA workflows. I focus on reliability, clarity, and long-term maintainability.",
+    "heroParagraph1": "Beyond engineering, I am a positive and easy-going person who enjoys staying active, spending time in nature and reading. In addition, I have entrepreneurial tendencies and enjoy turning ideas into practical projects. At the same time, I dabble in generating AI video content and currently I am building new personal projects I would be glad to discuss further.",
+    "heroParagraph2": "Sports are a big part of my routine as well. I enjoy watching football, basketball, combat sports and some motorsports. I lift weights regularly to stay disciplined, active and focused.",
     "journeyTitle": "Engineering Journey",
     "passionsTitle": "What I Love Building",
     "curiositiesTitle": "Current Curiosities",
     "portraitAlt": "Svetoslav Hristov portrait",
     "journeyMilestones": [
+	  {
+		"year": "2016",
+        "title": "Fundamentals in C++",
+        "detail": "Began my journey in engineering by practicing programming basics in C++.",
+        "icon": "Lightbulb"
+      },
+	  {
+		"year": "2017",
+        "title": "Competitive programming in C++",
+        "detail": "Began preparation for competitive programming, including algorithmic solving of tasks with memory and execution time constraints.",
+        "icon": "Lightbulb"
+      },
+	  {
+		"year": "2018",
+        "title": "Foundations in Application development",
+        "detail": "Began learning the foundations of building object-oriented apps in Java.",
+        "icon": "Lightbulb"
+      },
       {
         "year": "2020",
-        "title": "BAS Studies Started",
-        "detail": "Started Bachelor of Applied Sciences at Fontys University in Eindhoven.",
+        "title": "Bachelor Studies Started",
+        "detail": "Started Bachelor of Applied Sciences at Fontys University in Eindhoven where I continued my path towards applied software engineering by creating full-stack applications and managing their entire lifecycle.",
         "icon": "Lightbulb"
       },
       {
         "year": "2023",
-        "title": "Software Developer Internship",
-        "detail": "At Genzai and ViaLuxury, built an event-driven data transfer module and supported personalized marketing via unified customer profiles.",
+        "title": "Software Engineering Internship @ Genzai",
+        "detail": "Built an event-driven data transfer module to aggregate user data across platforms and enable personalized, data-driven marketing segmentation.",
         "icon": "Rocket"
       },
       {
@@ -73,20 +91,20 @@
       },
       {
         "year": "2024",
-        "title": "IT Internship at Homed-IQ",
-        "detail": "Designed a proof-of-concept for automated testing, deployment, and monitoring for a serverless backend with stronger observability.",
+        "title": "Software Engineering Internship @ Homed-IQ",
+        "detail": "Developed and deployed event-driven pipelines and designed business insight dashboards to improve operational transparency. In addition to that I designed and implemented strategy for automated testing, deployment and monitoring for a serverless backend with strong observability.",
         "icon": "Terminal"
       },
       {
         "year": "2025",
-        "title": "Developer at Homed-IQ",
-        "detail": "Maintaining and improving AWS Lambda backend services, RPA workflows, monitoring and alerting, and data pipelines for business insights.",
+        "title": "Joined Homed-IQ, as a Developer",
+        "detail": "Maintaining and improving AWS Lambda-based services, RPA workflows, monitoring, alerting, data pipelines and dashboards for business insights.",
         "icon": "Zap"
       }
     ],
     "passions": [
       {
-        "title": "Serverless Systems",
+        "title": "Scalable Systems",
         "description": "Building scalable backend services on AWS Lambda and event-driven patterns.",
         "icon": "Server"
       },
@@ -107,7 +125,7 @@
       },
       {
         "title": "System Reliability",
-        "description": "Improving monitoring, alerting, and operational resilience in production.",
+        "description": "Improving monitoring, alerting and operational resilience in production.",
         "icon": "Gauge"
       }
     ],
@@ -136,12 +154,12 @@
       },
       {
         "label": "Languages",
-        "value": "Bulgarian, English, Dutch",
+        "value": "English, Bulgarian",
         "icon": "Heart"
       },
       {
         "label": "Core Stack",
-        "value": "Python ? AWS ? TypeScript",
+        "value": "Python | AWS | Node.JS",
         "icon": "Layers"
       },
       {
@@ -151,7 +169,7 @@
       },
       {
         "label": "Interests",
-        "value": "AI & System Design",
+        "value": "GenAI & System Design",
         "icon": "Coffee"
       }
     ]
@@ -176,7 +194,7 @@
   },
   "contact": {
     "title": "Let's Connect",
-    "intro": "I am open to discussing software engineering roles, backend and cloud projects, and automation initiatives. Feel free to reach out for opportunities or technical collaboration.",
+    "intro": "I am open to discussing software engineering roles, backend and cloud projects and automation initiatives. Feel free to reach out for opportunities or technical collaboration.",
     "methods": [
       {
         "label": "Email",
@@ -213,7 +231,7 @@
     },
     "availability": {
       "title": "Currently Available",
-      "description": "I am open to full-time opportunities, freelance collaborations, and technical discussions. Feel free to reach out - I typically respond within 24 hours.",
+      "description": "I am open to full-time opportunities, freelance collaborations and technical discussions. Feel free to reach out - I typically respond within 24 hours.",
       "tags": [
         "Job Opportunities",
         "Collaborations",
@@ -227,8 +245,8 @@
       "invalidEmailDescription": "Please enter a valid email address.",
       "successTitle": "Message sent!",
       "successDescription": "Thanks for reaching out. I will get back to you soon.",
-      "errorTitle": "Error sending message",
-      "errorDescription": "Something went wrong. Please try again later."
+      "errorTitle": "Something went wrong",
+      "errorDescription": "Failed to send your message. Please try again or reach out directly by email."
     }
   },
   "notFound": {
@@ -242,27 +260,35 @@
         "role": "Developer",
         "company": "Homed-IQ, Amsterdam",
         "period": "Feb 2025 - Present",
-        "description": "Maintain and improve a serverless AWS Lambda backend used across core business functions, build RPA workflows, and support monitoring, alerting, and data pipelines.",
+        "description": "Maintain and improve a serverless AWS Lambda backend used across core business functions, build RPA workflows and support monitoring, alerting and data pipelines.",
         "skills": [
           "Python",
-          "AWS Lambda",
-          "RPA",
-          "Monitoring",
-          "Data Pipelines"
+          "AWS",
+          "Zoho RPA",
+          "UiPath",
+          "New Relic One",
+          "MySQL",
+          "Zoho Analytics",
+          "GitHub Actions",
+          "CI/CD"
         ]
       },
       {
         "id": "exp-2",
-        "role": "IT Intern",
+        "role": "Software Engineering Intern",
         "company": "Homed-IQ, Amsterdam",
         "period": "Sep 2024 - Feb 2025",
-        "description": "Designed and implemented a proof-of-concept for automated testing, deployment, and monitoring of a serverless backend with improved observability and CI/CD workflows.",
+        "description": "Developed and deployed event-driven pipelines and designed business insight dashboards to improve operational transparency. In addition to that I designed and implemented strategy for automated testing, deployment and monitoring for a serverless backend with strong observability.",
         "skills": [
+          "Python",
           "AWS",
           "CI/CD",
-          "Docker",
           "GitHub Actions",
-          "Observability"
+          "CI/CD",
+          "New Relic One",
+          "Zoho Analytics",
+          "MySQL",
+          "DynamoDB"
         ]
       },
       {
@@ -270,17 +296,26 @@
         "role": "Technical Lead",
         "company": "Teamium | Fontys ICT Open-learning, Eindhoven",
         "period": "Feb 2024 - Jul 2024",
-        "description": "Led technical transition of a proof-of-concept into a production-ready system, mentored teammates, and aligned architecture decisions with stakeholders.",
+        "description": "Led technical transition of a proof-of-concept into a production-ready system, mentored teammates and aligned architecture decisions with stakeholders. ",
         "skills": [
           "System Architecture",
           "Technical Leadership",
           "Mentoring",
-          "Stakeholder Collaboration"
+          "Node.js",
+          "NestJS",
+          "Next.js",
+          "RabbitMQ",
+          "PostgreSQL",
+          "GitHub Actions",
+          "CI/CD",
+          "Auth0",
+          "React",
+          "TypeScript"
         ]
       },
       {
         "id": "exp-4",
-        "role": "Software Developer Intern",
+        "role": "Software Engineering Intern",
         "company": "Genzai | ViaLuxury, Venlo",
         "period": "Feb 2023 - Jul 2023",
         "description": "Built an event-driven data transfer module to aggregate user data across platforms and enable personalized, data-driven marketing segmentation.",
@@ -288,7 +323,15 @@
           "Event-Driven Systems",
           "Data Integration",
           "SQL",
-          "Automation"
+          "Automation",
+          "Python",
+          "FastAPI",
+          "Google BigQuery",
+          "Cloud Run",
+          "Google Pub/Sub",
+          "Copernica",
+          "Squeezely",
+          "Docker"
         ]
       }
     ],
@@ -297,7 +340,7 @@
         "name": "Languages",
         "skills": [
           "Python",
-          "Java",
+          "Node.js",
           "TypeScript",
           "SQL"
         ]
@@ -305,12 +348,10 @@
       {
         "name": "Frameworks",
         "skills": [
-          "Spring Boot",
-          "Hibernate",
-          "Node.js",
           "NestJS",
           "Next.js",
-          "React.js"
+          "React",
+          "FastAPI"
         ]
       },
       {
@@ -319,7 +360,8 @@
           "AWS",
           "Docker",
           "GitHub Actions",
-          "CI/CD"
+          "CI/CD",
+          "Cloud Run"
         ]
       },
       {
@@ -328,7 +370,7 @@
           "MySQL",
           "PostgreSQL",
           "DynamoDB",
-          "Apache Cassandra"
+          "Google BigQuery"
         ]
       },
       {
@@ -336,7 +378,18 @@
         "skills": [
           "UiPath",
           "Zoho RPA",
-          "RabbitMQ"
+          "RabbitMQ",
+          "Google Pub/Sub"
+        ]
+      },
+      {
+        "name": "Platforms",
+        "skills": [
+          "Squeezely",
+          "Copernica",
+          "Zoho Analytics",
+          "New Relic One",
+          "Auth0"
         ]
       }
     ],
@@ -345,7 +398,7 @@
         "id": "serverless-backend-ops",
         "title": "Serverless Backend Operations",
         "summary": "Maintenance and improvement of an AWS Lambda backend used across core business functions.",
-        "description": "A production-focused backend engineering effort at Homed-IQ centered on reliability, maintainability, and operational support in a serverless AWS environment.",
+        "description": "A production-focused backend engineering effort at Homed-IQ centered on reliability, maintainability and operational support in a serverless AWS environment.",
         "techStack": [
           "Python",
           "AWS Lambda",
@@ -415,15 +468,11 @@
       },
       {
         "id": "cicd-observability-poc",
-        "title": "CI/CD and Observability PoC",
-        "summary": "Proof-of-concept for automated testing, deployment, and monitoring of a serverless backend.",
+        "title": "USB Keylogger",
+        "summary": "Proof-of-concept for automated testing, deployment and monitoring of a serverless backend.",
         "description": "Created a practical foundation for production-ready deployment with CI/CD and observability improvements during the Homed-IQ internship.",
         "techStack": [
-          "AWS",
-          "Docker",
-          "GitHub Actions",
-          "CI/CD",
-          "Observability"
+          "Python"
         ],
         "features": [
           "Automated testing and deployment workflow",
