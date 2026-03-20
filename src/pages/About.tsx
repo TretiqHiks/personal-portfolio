@@ -152,7 +152,7 @@ const About = () => {
 
                 return (
                   <motion.div
-                    key={m.year}
+                    key={i}
                     {...fadeUp}
                     transition={{ duration: 0.5, delay: i * 0.08 }}
                     className={`relative flex items-start gap-4 sm:gap-5 md:gap-0 ${
@@ -172,7 +172,10 @@ const About = () => {
                     >
                       <motion.div
                         whileHover={{ scale: 1.02 }}
+                        role="button"
+                        tabIndex={0}
                         onClick={() => setActiveMilestone(isActive ? null : i)}
+                        onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setActiveMilestone(isActive ? null : i); } }}
                         className={`glass rounded-2xl p-5 cursor-pointer transition-all duration-300 ${
                           isActive ? "glow-primary border-primary/30" : ""
                         }`}
@@ -194,15 +197,17 @@ const About = () => {
                         </div>
                         <AnimatePresence>
                           {isActive && (
-                            <motion.p
+                            <motion.div
                               initial={{ opacity: 0, height: 0 }}
                               animate={{ opacity: 1, height: "auto" }}
                               exit={{ opacity: 0, height: 0 }}
                               transition={{ duration: 0.25 }}
-                              className="text-sm text-muted-foreground mt-2 leading-relaxed overflow-hidden"
+                              className="overflow-hidden"
                             >
-                              {m.detail}
-                            </motion.p>
+                              <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
+                                {m.detail}
+                              </p>
+                            </motion.div>
                           )}
                         </AnimatePresence>
                       </motion.div>
