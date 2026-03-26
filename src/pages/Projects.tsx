@@ -48,44 +48,43 @@ const HeroProjectCard = ({ project }: { project: typeof projects[0] }) => {
   const img = getProjectImage(project.image);
   return (
     <motion.div {...fadeUp} transition={{ duration: 0.4 }}>
-      <div className="glass rounded-2xl overflow-hidden transition-all duration-300 hover:glow-primary hover:border-primary/20 group">
-        {img && (
-          <div className="w-full h-[320px] overflow-hidden">
-            <img
-              src={img}
-              alt={project.title}
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-            />
+      <Link to={`/projects/${project.id}`} className="block">
+        <div className="glass rounded-2xl overflow-hidden transition-all duration-300 hover:glow-primary hover:border-primary/20 group cursor-pointer">
+          {img && (
+            <div className="w-full h-[320px] overflow-hidden">
+              <img
+                src={img}
+                alt={project.title}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
+          )}
+          <div className="p-6 md:p-8">
+            <div className="flex items-start justify-between mb-3">
+              <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
+                {project.title}
+              </h3>
+              <ProjectLinks project={project} />
+            </div>
+            <p className="text-muted-foreground leading-relaxed mb-5">
+              {project.summary}
+            </p>
+            <div className="flex flex-wrap gap-1.5 mb-5">
+              {project.techStack.map((tech) => (
+                <span
+                  key={tech}
+                  className="text-[11px] px-2 py-0.5 rounded-full bg-primary/10 text-primary font-medium"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+            <span className="inline-flex items-center gap-1.5 text-sm font-medium text-primary">
+              View Details <ArrowRight className="w-4 h-4" />
+            </span>
           </div>
-        )}
-        <div className="p-6 md:p-8">
-          <div className="flex items-start justify-between mb-3">
-            <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
-              {project.title}
-            </h3>
-            <ProjectLinks project={project} />
-          </div>
-          <p className="text-muted-foreground leading-relaxed mb-5">
-            {project.summary}
-          </p>
-          <div className="flex flex-wrap gap-1.5 mb-5">
-            {project.techStack.map((tech) => (
-              <span
-                key={tech}
-                className="text-[11px] px-2 py-0.5 rounded-full bg-primary/10 text-primary font-medium"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
-          <Link
-            to={`/projects/${project.id}`}
-            className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline"
-          >
-            View Details <ArrowRight className="w-4 h-4" />
-          </Link>
         </div>
-      </div>
+      </Link>
     </motion.div>
   );
 };
@@ -107,51 +106,50 @@ const ProjectCard = ({
       transition={{ duration: 0.4, delay: 0.1 * i }}
       className={isPast ? "opacity-80" : ""}
     >
-      <div className="glass rounded-2xl overflow-hidden h-full transition-all duration-300 hover:glow-primary hover:border-primary/20 group flex flex-col">
-        {img && (
-          <div className="w-full h-56 overflow-hidden">
-            <img
-              src={img}
-              alt={project.title}
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-            />
-          </div>
-        )}
-        <div className="p-6 flex flex-col flex-1">
-          <div className="flex items-start justify-between mb-3">
-            <div className="flex items-center gap-2 flex-wrap">
-              <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
-                {project.title}
-              </h3>
-              {isPast && (
-                <span className="text-[10px] px-2 py-0.5 rounded-full bg-muted text-muted-foreground font-medium">
-                  {t.pastLabel}
-                </span>
-              )}
+      <Link to={`/projects/${project.id}`} className="block h-full">
+        <div className="glass rounded-2xl overflow-hidden h-full transition-all duration-300 hover:glow-primary hover:border-primary/20 group flex flex-col cursor-pointer">
+          {img && (
+            <div className="w-full h-56 overflow-hidden">
+              <img
+                src={img}
+                alt={project.title}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
             </div>
-            <ProjectLinks project={project} />
+          )}
+          <div className="p-6 flex flex-col flex-1">
+            <div className="flex items-start justify-between mb-3">
+              <div className="flex items-center gap-2 flex-wrap">
+                <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
+                  {project.title}
+                </h3>
+                {isPast && (
+                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-muted text-muted-foreground font-medium">
+                    {t.pastLabel}
+                  </span>
+                )}
+              </div>
+              <ProjectLinks project={project} />
+            </div>
+            <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-1">
+              {project.summary}
+            </p>
+            <div className="flex flex-wrap gap-1.5 mb-4">
+              {project.techStack.map((tech) => (
+                <span
+                  key={tech}
+                  className="text-[11px] px-2 py-0.5 rounded-full bg-primary/10 text-primary font-medium"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+            <span className="inline-flex items-center gap-1.5 text-sm font-medium text-primary mt-auto">
+              View Details <ArrowRight className="w-4 h-4" />
+            </span>
           </div>
-          <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-1">
-            {project.summary}
-          </p>
-          <div className="flex flex-wrap gap-1.5 mb-4">
-            {project.techStack.map((tech) => (
-              <span
-                key={tech}
-                className="text-[11px] px-2 py-0.5 rounded-full bg-primary/10 text-primary font-medium"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
-          <Link
-            to={`/projects/${project.id}`}
-            className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline mt-auto"
-          >
-            View Details <ArrowRight className="w-4 h-4" />
-          </Link>
         </div>
-      </div>
+      </Link>
     </motion.div>
   );
 };
