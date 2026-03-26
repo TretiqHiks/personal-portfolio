@@ -395,97 +395,27 @@
     ],
     "projects": [
       {
-        "id": "serverless-backend-ops",
-        "title": "Serverless Backend Operations",
-        "summary": "Maintenance and improvement of an AWS Lambda backend used across core business functions.",
-        "description": "A production-focused backend engineering effort at Homed-IQ centered on reliability, maintainability and operational support in a serverless AWS environment.",
-        "techStack": [
-          "Python",
-          "AWS Lambda",
-          "AWS",
-          "Monitoring",
-          "Alerting"
-        ],
+        "id": "estatevisio",
+        "title": "EstateVisio",
+        "status": "active",
+        "summary": "An AI-powered real estate video service that turns property photos into professional marketing videos — complete with cinematic tour, virtual furnishing reveals, and a personalized AI avatar presenter — delivered in under 24 hours.",
+        "description": "EstateVisio was born from a simple frustration: property presentation shouldn't require coordinating a videographer, scheduling site visits, or waiting days for an edit. The service takes a set of property photos and returns a professionally crafted marketing video — a fast-paced tour montage, layered virtual furnishing reveals that show empty spaces transformed, and optionally an AI-generated presenter that uses the agent's own face and voice. Every video is manually reviewed and montaged for full realism before delivery. The result is a premium showcase that was previously only accessible to high-budget listings, now available for any property — rental, mid-range, or luxury — in under 24 hours.",
+        "techStack": ["AI Video Generation", "Real Estate Marketing", "Virtual Staging", "Digital Twin", "Done-for-you Service"],
         "features": [
-          "Maintenance and iterative improvement of serverless backend services",
-          "Real-time monitoring and alerting for high availability",
-          "Support for data pipelines and business insight dashboards"
+          "Cinematic property tour montages assembled from photos — no videographer or site visit needed",
+          "Layered virtual furnishing reveals — virtual staging applied to video, not just static photos",
+          "AI avatar presenter cloned from the agent's own face and voice — personal brand at scale",
+          "Manual quality review on every video — 100% realism guaranteed, not automated output",
+          "Under 24-hour turnaround from photo delivery to finished video",
+          "Free sample video for new prospects — zero-risk way to experience the product"
         ],
         "challenges": [
-          "Balancing rapid business needs with long-term backend stability",
-          "Improving operational visibility across critical workflows",
-          "Supporting data consistency across cloud-native components"
+          "Building client trust in AI-generated video for professional real estate use",
+          "Maintaining 100% realism across diverse property types while keeping turnaround under 24 hours",
+          "Creating a done-for-you service workflow that scales without sacrificing quality"
         ],
-        "image": "project-pulse",
-        "status": "active"
-      },
-      {
-        "id": "rpa-process-automation",
-        "title": "RPA Process Automation",
-        "summary": "Automated operational workflows to reduce manual effort and improve consistency.",
-        "description": "Designed and implemented RPA workflows to streamline business operations and increase process reliability.",
-        "techStack": [
-          "UiPath",
-          "Zoho RPA",
-          "Python",
-          "Process Automation"
-        ],
-        "features": [
-          "Automated repetitive operational tasks",
-          "Improved process consistency and speed",
-          "Integrated automation with existing business flows"
-        ],
-        "challenges": [
-          "Translating manual business steps into robust automation",
-          "Ensuring stable execution in changing operational contexts",
-          "Aligning technical automation with stakeholder expectations"
-        ],
-        "image": "project-vault",
-        "status": "active"
-      },
-      {
-        "id": "event-driven-customer-data",
-        "title": "Event-Driven Customer Data Module",
-        "summary": "Aggregated user data across platforms to enable unified customer profiles.",
-        "description": "Internship project focused on event-driven data transfer and segmentation support for more effective, personalized marketing.",
-        "techStack": [
-          "Event-Driven Architecture",
-          "SQL",
-          "Data Integration"
-        ],
-        "features": [
-          "Cross-platform user data aggregation",
-          "Unified profile generation",
-          "Improved targeting through data-driven segmentation"
-        ],
-        "challenges": [
-          "Designing reliable data flow between multiple systems",
-          "Handling profile consistency across sources",
-          "Collaborating with marketing and data teams on outcomes"
-        ],
-        "image": "project-gridflow",
-        "status": "past"
-      },
-      {
-        "id": "cicd-observability-poc",
-        "title": "USB Keylogger",
-        "summary": "Proof-of-concept for automated testing, deployment and monitoring of a serverless backend.",
-        "description": "Created a practical foundation for production-ready deployment with CI/CD and observability improvements during the Homed-IQ internship.",
-        "techStack": [
-          "Python"
-        ],
-        "features": [
-          "Automated testing and deployment workflow",
-          "Monitoring pipeline for service health and behavior",
-          "Improved visibility into critical business operations"
-        ],
-        "challenges": [
-          "Designing a PoC that could scale to production expectations",
-          "Integrating observability without disrupting delivery speed",
-          "Aligning technical quality gates with operational needs"
-        ],
-        "image": "project-spectra",
-        "status": "past"
+        "demo": "https://estatevisio.com",
+        "image": "project-estatevisio"
       },
       {
         "id": "tracepack",
@@ -533,6 +463,32 @@
         "pypi": "https://pypi.org/project/lambdaforge/",
         "demo": null,
         "image": "project-lambdaforge"
+      },
+      {
+        "id": "cronvault",
+        "title": "CronVault",
+        "status": "past",
+        "summary": "A self-hosted cron job management dashboard. Schedule jobs, track run history with output logs, and get notified via webhook or email when failures cross a configurable threshold.",
+        "description": "CronVault grew from the need to reliably schedule and observe recurring tasks without depending on external services. A FastAPI backend drives an APScheduler instance that executes shell commands on a cron schedule and records every run — status, duration, and captured stdout/stderr — to a SQLite database. A Next.js frontend surfaces a live job table, per-job run history with an output log modal, and a duration bar chart. The notifications layer lets operators configure a failure threshold and recovery alerts that fire over HTTP webhook or SMTP email, keeping alert noise low by triggering only on threshold crossings rather than every individual failure.",
+        "techStack": ["Next.js", "TypeScript", "FastAPI", "Python", "SQLite", "APScheduler", "Docker"],
+        "features": [
+          "Create, edit, and delete cron jobs with a schedule expression and shell command",
+          "Live dashboard table with last-run status, duration, and next scheduled time",
+          "Per-job run history with stdout/stderr output in a log modal",
+          "Duration bar chart per job for spotting performance regressions",
+          "Configurable failure-threshold alerts — fires once at the crossing, not on every failure",
+          "Recovery notifications when a job returns to success after hitting the threshold",
+          "Dual notification channels: HTTP webhook POST and SMTP email, independently toggleable",
+          "Dockerised setup — backend, frontend, and scheduler in one compose stack"
+        ],
+        "challenges": [
+          "Designing the scheduler so job edits take effect immediately without restarting the process",
+          "Keeping notifications low-noise: firing at the threshold crossing only and resetting cleanly on recovery",
+          "Capturing subprocess stdout/stderr reliably while enforcing a per-run timeout"
+        ],
+        "github": "https://github.com/TretiqHiks/cronvault",
+        "demo": null,
+        "image": "project-cronvault"
       }
     ]
   }
