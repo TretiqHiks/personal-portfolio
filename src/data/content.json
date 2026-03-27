@@ -460,7 +460,7 @@
           "Packaging and publishing a developer tool to PyPI with a clean, minimal CLI interface"
         ],
         "github": "https://github.com/TretiqHiks/lambdaforge",
-        "pypi": "https://pypi.org/project/lambdaforge/",
+        "pypi": "https://pypi.org/project/lambdaforge-local/",
         "demo": null,
         "image": "project-lambdaforge"
       },

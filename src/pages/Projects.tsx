@@ -2,7 +2,7 @@ import Layout from "@/components/Layout";
 import { motion } from "framer-motion";
 import { projects } from "@/data/portfolio";
 import { Link } from "react-router-dom";
-import { ArrowUpRight, Github, ArrowRight } from "lucide-react";
+import { ArrowUpRight, Github, ArrowRight, Package } from "lucide-react";
 import { getProjectImage } from "@/lib/projectImages";
 import content from "@/data/content.json";
 
@@ -38,6 +38,18 @@ const ProjectLinks = ({ project }: { project: typeof projects[0] }) => (
         aria-label="Live demo"
       >
         <ArrowUpRight className="w-4 h-4" />
+      </a>
+    )}
+    {project.pypi && (
+      <a
+        href={project.pypi}
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={(e) => e.stopPropagation()}
+        className="p-1.5 rounded-lg text-muted-foreground hover:text-foreground transition-colors"
+        aria-label="PyPI package"
+      >
+        <Package className="w-4 h-4" />
       </a>
     )}
   </div>

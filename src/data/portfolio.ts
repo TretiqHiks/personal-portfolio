@@ -10,6 +10,7 @@ export interface Project {
   challenges: string[];
   github?: string;
   demo?: string;
+  pypi?: string;
   image?: string;
   status: "active" | "past";
 }

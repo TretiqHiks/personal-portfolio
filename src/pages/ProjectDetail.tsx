@@ -2,7 +2,7 @@ import Layout from "@/components/Layout";
 import { motion } from "framer-motion";
 import { useParams, Link } from "react-router-dom";
 import { projects } from "@/data/portfolio";
-import { ArrowLeft, ArrowUpRight, Github } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, Github, Package } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { getProjectImage } from "@/lib/projectImages";
 import content from "@/data/content.json";
@@ -82,6 +82,16 @@ const ProjectDetail = () => {
               className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
               <ArrowUpRight className="w-4 h-4" /> {t.liveDemo}
+            </a>
+          )}
+          {project.pypi && (
+            <a
+              href={project.pypi}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              <Package className="w-4 h-4" /> PyPI
             </a>
           )}
         </motion.div>
