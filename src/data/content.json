@@ -198,8 +198,8 @@
     "methods": [
       {
         "label": "Email",
-        "value": "svetoslav.hristov2001@gmail.com",
-        "href": "mailto:svetoslav.hristov2001@gmail.com",
+        "value": "contact@svetoslav.dev",
+        "href": "mailto:contact@svetoslav.dev",
         "icon": "Mail"
       },
       {
@@ -217,7 +217,7 @@
       {
         "label": "References",
         "value": "Available upon request",
-        "href": "mailto:svetoslav.hristov2001@gmail.com",
+        "href": "mailto:contact@svetoslav.dev",
         "icon": "Mail"
       }
     ],
