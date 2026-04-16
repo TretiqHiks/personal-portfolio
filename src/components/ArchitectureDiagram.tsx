@@ -14,6 +14,8 @@ interface InternalStep {
 interface ArchitectureDiagramProps {
   modules: DiagramModule[];
   internalSteps: InternalStep[];
+  subtitle?: string;
+  pipelineTitle?: string;
 }
 
 const fadeUp = {
@@ -21,16 +23,12 @@ const fadeUp = {
   animate: { opacity: 1, y: 0 },
 };
 
-const DownArrow = () => (
-  <div className="flex flex-col items-center py-1 shrink-0">
-    <div className="w-px h-4 bg-border/40" />
-    <svg width="8" height="5" viewBox="0 0 8 5" fill="currentColor" className="text-border/40">
-      <path d="M0 0L4 5L8 0Z" />
-    </svg>
-  </div>
-);
-
-export const ArchitectureDiagram = ({ modules, internalSteps }: ArchitectureDiagramProps) => {
+export const ArchitectureDiagram = ({
+  modules,
+  internalSteps,
+  subtitle,
+  pipelineTitle,
+}: ArchitectureDiagramProps) => {
   return (
     <motion.div
       {...fadeUp}
@@ -38,79 +36,69 @@ export const ArchitectureDiagram = ({ modules, internalSteps }: ArchitectureDiag
       className="glass rounded-2xl p-6 mb-10"
     >
       <h2 className="text-lg font-semibold text-foreground mb-1">System Architecture</h2>
-      <p className="text-xs text-muted-foreground mb-6">
-        Three decoupled modules connected through Google Drive as the storage backbone.
-      </p>
+      {subtitle && (
+        <p className="text-xs text-muted-foreground mb-6">{subtitle}</p>
+      )}
 
-      <div className="flex flex-col items-center">
-        {modules.map((mod, i) => {
-          const isHighlight = mod.type === "highlight";
-          const isStorage = mod.type === "storage";
-
-          return (
-            <div key={i} className="flex flex-col items-center w-full max-w-sm">
-              {/* Module node */}
-              <div
+      {/* ── Section 1: Module flow ── */}
+      <div className="flex flex-wrap items-start gap-y-3 mb-6">
+        {modules.map((mod, i) => (
+          <div key={i} className="flex items-center">
+            <div
+              className={[
+                "rounded-lg px-3 py-2 text-center",
+                mod.type === "highlight"
+                  ? "border border-primary/50 bg-primary/10"
+                  : mod.type === "storage"
+                  ? "border border-dashed border-muted-foreground/25 bg-transparent"
+                  : "border border-border/35 bg-muted/10",
+              ].join(" ")}
+            >
+              <p
                 className={[
-                  "w-full rounded-xl px-5 py-3 text-center",
-                  isHighlight
-                    ? "border border-primary/50 bg-primary/10 shadow-sm shadow-primary/10"
-                    : isStorage
-                    ? "border border-dashed border-muted-foreground/30 bg-transparent"
-                    : "border border-border/40 bg-muted/10",
+                  "text-[11px] font-semibold whitespace-nowrap",
+                  mod.type === "highlight"
+                    ? "text-primary"
+                    : mod.type === "storage"
+                    ? "text-muted-foreground/60"
+                    : "text-foreground",
                 ].join(" ")}
               >
-                <p
-                  className={[
-                    "text-xs font-semibold mb-0.5",
-                    isHighlight ? "text-primary" : isStorage ? "text-muted-foreground/70" : "text-foreground",
-                  ].join(" ")}
-                >
-                  {mod.name}
-                  {isHighlight && (
-                    <span className="ml-2 text-[9px] font-normal tracking-wider text-primary/50 uppercase">
-                      this project
-                    </span>
-                  )}
-                </p>
-                <p className="text-[10px] text-muted-foreground leading-snug">{mod.note}</p>
-              </div>
-
-              {/* Internal steps — shown inside the highlighted module */}
-              {isHighlight && internalSteps.length > 0 && (
-                <div className="w-full mt-2 mb-0 border-x border-primary/20 px-4">
-                  <div className="border border-primary/15 rounded-xl bg-primary/5 px-4 py-3 w-full">
-                    <p className="text-[9px] font-semibold text-primary/50 uppercase tracking-widest mb-3">
-                      Internal pipeline
-                    </p>
-                    {internalSteps.map((step, si) => (
-                      <div key={si} className="flex gap-3">
-                        <div className="flex flex-col items-center shrink-0 pt-0.5">
-                          <div className="w-4 h-4 rounded-full border border-primary/35 bg-primary/10 flex items-center justify-center">
-                            <span className="text-[8px] font-bold text-primary/60">{si + 1}</span>
-                          </div>
-                          {si < internalSteps.length - 1 && (
-                            <div className="w-px flex-1 bg-primary/10 my-0.5" style={{ minHeight: "14px" }} />
-                          )}
-                        </div>
-                        <div className="pb-3">
-                          <p className="text-[11px] font-semibold text-foreground/80 leading-snug">
-                            {step.label}
-                          </p>
-                          <p className="text-[10px] text-muted-foreground leading-relaxed mt-0.5">
-                            {step.note}
-                          </p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {i < modules.length - 1 && <DownArrow />}
+                {mod.name}
+              </p>
+              <p className="text-[9px] text-muted-foreground/60 mt-0.5 whitespace-nowrap">{mod.note}</p>
             </div>
-          );
-        })}
+
+            {i < modules.length - 1 && (
+              <span className="mx-2 text-muted-foreground/30 text-sm select-none">→</span>
+            )}
+          </div>
+        ))}
+      </div>
+
+      {/* ── Divider ── */}
+      <div className="border-t border-border/20 mb-5" />
+
+      {/* ── Section 2: Internal pipeline steps ── */}
+      {pipelineTitle && (
+        <p className="text-[10px] font-semibold text-primary/50 uppercase tracking-widest mb-4">
+          {pipelineTitle}
+        </p>
+      )}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-0">
+        {internalSteps.map((step, i) => (
+          <div key={i} className="flex gap-3 pb-4">
+            <div className="flex flex-col items-center shrink-0 pt-0.5">
+              <div className="w-5 h-5 rounded-full border border-primary/30 bg-primary/8 flex items-center justify-center shrink-0">
+                <span className="text-[9px] font-bold text-primary/60">{i + 1}</span>
+              </div>
+            </div>
+            <div>
+              <p className="text-xs font-semibold text-foreground/80 leading-snug">{step.label}</p>
+              <p className="text-[10px] text-muted-foreground leading-relaxed mt-0.5">{step.note}</p>
+            </div>
+          </div>
+        ))}
       </div>
     </motion.div>
   );

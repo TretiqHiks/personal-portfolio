@@ -15,6 +15,8 @@ export interface Project {
   architectureDiagram?: {
     modules: { name: string; note: string; type: "module" | "storage" | "highlight" }[];
     internalSteps: { label: string; note: string }[];
+    subtitle?: string;
+    pipelineTitle?: string;
   };
   status: "active" | "past";
 }

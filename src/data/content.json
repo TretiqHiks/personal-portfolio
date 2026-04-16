@@ -452,40 +452,52 @@
         ],
         "image": "project-polymarket-bot",
         "architectureDiagram": {
+          "subtitle": "Four decoupled stages — data polling, AI analysis, risk management, and live monitoring run on independent async cycles.",
+          "pipelineTitle": "Inside the AI Analysis stage",
           "modules": [
             {
-              "name": "Market Feed",
-              "note": "Gamma API · 500+ markets",
-              "storage": true
-            },
-            {
-              "name": "Price Cache",
-              "note": "10s polling cycle"
+              "name": "Market Data",
+              "note": "Gamma API · 500+ markets · 10s poll",
+              "type": "storage"
             },
             {
               "name": "Signal Detector",
-              "note": "price Δ · volume · spread"
+              "note": "price Δ · volume · spread · divergence",
+              "type": "module"
             },
             {
-              "name": "LLM Pipeline",
-              "note": "two-stage · triage + reasoning",
-              "highlight": true
+              "name": "AI Analysis",
+              "note": "two-stage LLM pipeline · triage + reasoning",
+              "type": "highlight"
             },
             {
               "name": "Risk Gate",
-              "note": "position limits · exposure caps"
+              "note": "basket limits · exposure · hold-off",
+              "type": "module"
             },
             {
-              "name": "Live Dashboard",
-              "note": "WebSocket · real-time",
-              "storage": true
+              "name": "Dashboard",
+              "note": "WebSocket · equity · cost · decisions",
+              "type": "storage"
             }
           ],
           "internalSteps": [
-            "Triage Model — rapid signal classification",
-            "Route: CLEAR → skip, AMBIGUOUS → hold, ESCALATE → deep analysis",
-            "Reasoning Model — strategic basket steering",
-            "Apply: bias · mode · quote width · hold-off"
+            {
+              "label": "Triage Model",
+              "note": "Lightweight fast model classifies each signal as CLEAR, AMBIGUOUS, or ESCALATE."
+            },
+            {
+              "label": "Routing Decision",
+              "note": "CLEAR signals are skipped cheaply. ESCALATE triggers the deeper reasoning model."
+            },
+            {
+              "label": "Reasoning Model",
+              "note": "Strategic model sets basket bias, trading mode, and quote width multiplier."
+            },
+            {
+              "label": "Basket Steering",
+              "note": "Updated steering state persists across markets and survives bot restarts."
+            }
           ]
         }
       },
@@ -632,7 +644,9 @@
               "label": "Caption Burning",
               "note": "Word-highlight karaoke captions, pause-aware grouping"
             }
-          ]
+          ],
+          "subtitle": "Three decoupled modules connected through Google Drive as the storage backbone.",
+          "pipelineTitle": "Inside the Clipper Module"
         }
       },
       {
