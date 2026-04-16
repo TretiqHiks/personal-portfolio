@@ -6,6 +6,7 @@ import { ArrowLeft, ArrowUpRight, Github, Package } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { getProjectImage } from "@/lib/projectImages";
 import content from "@/data/content.json";
+import { ArchitectureDiagram } from "@/components/ArchitectureDiagram";
 
 const fadeUp = {
   initial: { opacity: 0, y: 20 },
@@ -137,7 +138,15 @@ const ProjectDetail = () => {
           <p className="text-muted-foreground leading-relaxed">{project.description}</p>
         </motion.div>
 
-        {/* Architecture Diagram */}
+        {/* Visual Architecture Diagram */}
+        {project.architectureDiagram && (
+          <ArchitectureDiagram
+            modules={project.architectureDiagram.modules}
+            internalSteps={project.architectureDiagram.internalSteps}
+          />
+        )}
+
+        {/* Text Architecture Diagram */}
         {project.diagram && (
           <motion.div
             {...fadeUp}

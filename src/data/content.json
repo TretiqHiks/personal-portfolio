@@ -517,6 +517,75 @@
         "image": "project-lambdaforge"
       },
       {
+        "id": "tiktok-clip-farm",
+        "title": "TikTok Clip Farm — Clipper Module",
+        "status": "active",
+        "summary": "An automated video processing pipeline that ingests raw TikTok livestream recordings, identifies viral moments with AI, cuts vertical 9:16 clips, burns karaoke-style captions, and delivers finished content to Google Drive — ready for upload.",
+        "description": "The Clipper Module is the processing core of a three-part automated content pipeline. It downloads raw livestream recordings from Google Drive, transcribes them with GPU-accelerated Whisper, runs a conservative LLM correction pass to preserve dialect and slang, then uses GPT-4o to score 5-minute transcript windows for virality and return precise timestamps. ffmpeg cuts the selected moments into letterboxed 9:16 vertical clips, and an ASS caption engine burns word-by-word karaoke highlights with pause-aware grouping. Finished clips are uploaded back to Drive and picked up by the Upload Module — no shared process, no message queue, just files.",
+        "techStack": [
+          "Python",
+          "faster-whisper",
+          "OpenAI GPT-4o",
+          "ffmpeg",
+          "rclone",
+          "ASS Subtitles",
+          "CUDA"
+        ],
+        "features": [
+          "GPU-accelerated speech-to-text via faster-whisper (large-v3) with language-aware initial prompt for dialect accuracy",
+          "LLM transcript correction pass — conservative by design, preserving slang and non-standard speech rather than normalising it",
+          "GPT-4o virality scoring over chunked 5-minute transcript windows, returning precise start/end timestamps for each highlight",
+          "ffmpeg clip cutting with letterbox 9:16 padding — TikTok-compliant output without cropping any content",
+          "Word-by-word karaoke captions in ASS format, grouped by pause gaps >0.5s to prevent stale words reappearing after silence",
+          "Whisper runs in an isolated subprocess, preventing CUDA cleanup crashes from propagating to the parent pipeline",
+          "Google Drive as the sole integration layer — finished clips are delivered without coupling the modules to a shared runtime"
+        ],
+        "challenges": [
+          "Whisper's CUDA cleanup causes hard crashes at process exit when run inline. The fix was to isolate transcription in a subprocess so teardown is fully contained — the parent pipeline continues cleanly regardless.",
+          "Running highlight detection over a full livestream transcript degrades LLM focus and risks hitting context limits. Chunking into 5-minute windows keeps each prompt tight and produces sharper, more reliable virality scores.",
+          "Fixed-word-count caption grouping breaks down after pauses — old words linger on screen and read as residual noise. Switching to silence-gap detection (>0.5s) aligns group boundaries with natural speech rhythm, making captions feel authored rather than mechanical.",
+          "Center-crop for 9:16 output loses content on variable-resolution livestreams. Letterbox padding preserves the full frame and stays within TikTok's format requirements without any resolution-specific logic."
+        ],
+        "github": "https://github.com/TretiqHiks/tiktok-clip-farm-clipper-module",
+        "image": "project-tiktok-clipper",
+        "architectureDiagram": {
+          "modules": [
+            {
+              "name": "Recording Module",
+              "note": "Scheduled capture of TikTok livestreams",
+              "highlight": false
+            },
+            {
+              "name": "Google Drive",
+              "note": "Storage backbone — raw recordings in, finished clips out",
+              "storage": true
+            },
+            {
+              "name": "Clipper Module",
+              "note": "This project — transcription, AI analysis, cutting, captions",
+              "highlight": true
+            },
+            {
+              "name": "Google Drive",
+              "note": "Finished clips delivered, ready for upload",
+              "storage": true
+            },
+            {
+              "name": "Upload Module",
+              "note": "Publishes finished clips to TikTok",
+              "highlight": false
+            }
+          ],
+          "internalSteps": [
+            "Whisper ASR (GPU)",
+            "GPT-4o Correction",
+            "GPT-4o Highlight Detection",
+            "ffmpeg Clip Cutting",
+            "ASS Caption Burning"
+          ]
+        }
+      },
+      {
         "id": "cronvault",
         "title": "CronVault",
         "status": "past",

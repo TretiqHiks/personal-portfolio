@@ -14,6 +14,15 @@ export interface Project {
   image?: string;
   diagram?: string;
   status: "active" | "past";
+  architectureDiagram?: {
+    modules: Array<{
+      name: string;
+      note: string;
+      highlight?: boolean;
+      storage?: boolean;
+    }>;
+    internalSteps: string[];
+  };
 }
 
 export interface ExperienceEntry {
