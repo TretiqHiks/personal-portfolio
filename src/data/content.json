@@ -589,10 +589,10 @@
           "Google Drive as the sole integration layer — finished clips are delivered without coupling the modules to a shared runtime"
         ],
         "challenges": [
-          "Whisper's CUDA cleanup causes hard crashes at process exit when run inline. The fix was to isolate transcription in a subprocess so teardown is fully contained — the parent pipeline continues cleanly regardless.",
-          "Running highlight detection over a full livestream transcript degrades LLM focus and risks hitting context limits. Chunking into 5-minute windows keeps each prompt tight and produces sharper, more reliable virality scores.",
-          "Fixed-word-count caption grouping breaks down after pauses — old words linger on screen and read as residual noise. Switching to silence-gap detection (>0.5s) aligns group boundaries with natural speech rhythm, making captions feel authored rather than mechanical.",
-          "Center-crop for 9:16 output loses content on variable-resolution livestreams. Letterbox padding preserves the full frame and stays within TikTok's format requirements without any resolution-specific logic."
+          "Transcription subprocess isolation — Whisper runs in a fully contained child process, keeping CUDA lifecycle entirely separate from the main pipeline so teardown is clean and the parent always exits gracefully.",
+          "Two-stage LLM transcript pass — faster-whisper with a language-primed initial prompt captures dialect and slang; GPT-4o then runs a conservative correction pass that improves accuracy without normalising non-standard speech.",
+          "Pause-aware karaoke captions — word groups are split on silence gaps >0.5s rather than fixed word counts, so caption boundaries align with natural speech rhythm and the result reads as authored content.",
+          "Letterbox 9:16 encoding — ffmpeg pads to TikTok dimensions without cropping, preserving the full frame across any source resolution or aspect ratio with a single resolution-agnostic command."
         ],
         "image": "project-tiktok-clipper",
         "architectureDiagram": {
