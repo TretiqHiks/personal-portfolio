@@ -143,6 +143,8 @@ const ProjectDetail = () => {
           <ArchitectureDiagram
             modules={project.architectureDiagram.modules}
             internalSteps={project.architectureDiagram.internalSteps}
+            subtitle={project.architectureDiagram.subtitle}
+            pipelineTitle={project.architectureDiagram.pipelineTitle}
           />
         )}
 
