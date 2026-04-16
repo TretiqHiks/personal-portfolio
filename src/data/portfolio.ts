@@ -12,6 +12,7 @@ export interface Project {
   demo?: string;
   pypi?: string;
   image?: string;
+  diagram?: string;
   status: "active" | "past";
 }
 

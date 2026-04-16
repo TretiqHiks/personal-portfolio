@@ -47,20 +47,20 @@
     "curiositiesTitle": "Current Curiosities",
     "portraitAlt": "Svetoslav Hristov portrait",
     "journeyMilestones": [
-	  {
-		"year": "2016",
+      {
+        "year": "2016",
         "title": "Fundamentals in C++",
         "detail": "Began my journey in engineering by practicing programming basics in C++.",
         "icon": "Lightbulb"
       },
-	  {
-		"year": "2017",
+      {
+        "year": "2017",
         "title": "Competitive programming in C++",
         "detail": "Began preparation for competitive programming, including algorithmic solving of tasks with memory and execution time constraints.",
         "icon": "Lightbulb"
       },
-	  {
-		"year": "2018",
+      {
+        "year": "2018",
         "title": "Foundations in Application development",
         "detail": "Began learning the foundations of building object-oriented apps in Java.",
         "icon": "Lightbulb"
@@ -395,12 +395,48 @@
     ],
     "projects": [
       {
+        "id": "polymarket-bot",
+        "title": "Polymarket Trading Bot",
+        "status": "active",
+        "summary": "An AI-powered autonomous trading agent that monitors prediction markets in real time, uses a multi-stage LLM pipeline to triage opportunities, and manages risk across thematic market baskets — all surfaced through a live web dashboard.",
+        "description": "The bot continuously monitors hundreds of prediction markets, polling for price movements and liquidity signals. When a market shows meaningful activity, it is routed through a two-stage AI pipeline: a lightweight triage model that rapidly classifies the opportunity, followed by a deeper reasoning model that sets strategic direction for the basket it belongs to. Markets are grouped into thematic baskets — each with its own risk budget and steering state — so the system can hold different views on correlated events simultaneously. A real-time dashboard tracks portfolio exposure, AI inference costs, live market prices, and decision history. All analysis and execution is fully asynchronous: data polling, AI reasoning, and risk checks run on independent cycles, keeping latency low without coupling fast signals to slow deliberation.",
+        "techStack": [
+          "Async Python",
+          "Multi-stage LLM Pipeline",
+          "Prediction Markets",
+          "Event-Driven Architecture",
+          "Real-time WebSocket Dashboard",
+          "Multi-basket Risk Management"
+        ],
+        "features": [
+          "Continuous market monitoring with decoupled polling and analysis cycles — fast data, deliberate decisions",
+          "Two-stage AI pipeline: lightweight triage for rapid signal classification, deeper model for strategic steering",
+          "Thematic market baskets with independent risk budgets, steering modes, and position limits",
+          "Live web dashboard with portfolio equity curve, AI cost tracking, market price charts, and decision log",
+          "Persistent state across restarts — cost history, basket assignments, and steering parameters all survive a reboot",
+          "Volume-ranked catch-all basket ensures high-liquidity markets are always covered regardless of topic"
+        ],
+        "challenges": [
+          "Designed a decoupled async architecture where market data polling, LLM analysis, and risk execution run on entirely independent timers — avoiding the trap of coupling fast signals to slow deliberation cycles.",
+          "Built a multi-basket system that lets the bot hold simultaneous, potentially conflicting views on correlated prediction markets, each governed by its own risk budget and AI steering state.",
+          "Implemented a two-stage AI routing strategy that keeps inference costs low: a cheap triage model handles the high-frequency classification layer, escalating only genuinely ambiguous signals to the more powerful reasoning model."
+        ],
+        "diagram": "Market Feed → Price Cache → Signal Detector\n                                    ↓\n                          Triage Model (fast)\n                          CLEAR  AMBIGUOUS  ESCALATE\n                            ↓       ↓          ↓\n                         skip    strategic   reasoning\n                                  skip        model\n                                               ↓\n                                   Basket Steering Update\n                                   (bias · mode · width)\n                                               ↓\n                                    Risk Gate → Execution\n                                               ↓\n                                       Dashboard (live)",
+        "github": "https://github.com/TretiqHiks/trading-bot"
+      },
+      {
         "id": "estatevisio",
         "title": "EstateVisio",
         "status": "active",
         "summary": "An AI-powered real estate video service that turns property photos into professional marketing videos — complete with cinematic tour, virtual furnishing reveals, and a personalized AI avatar presenter — delivered in under 24 hours.",
         "description": "EstateVisio was born from a simple frustration: property presentation shouldn't require coordinating a videographer, scheduling site visits, or waiting days for an edit. The service takes a set of property photos and returns a professionally crafted marketing video — a fast-paced tour montage, layered virtual furnishing reveals that show empty spaces transformed, and optionally an AI-generated presenter that uses the agent's own face and voice. Every video is manually reviewed and montaged for full realism before delivery. The result is a premium showcase that was previously only accessible to high-budget listings, now available for any property — rental, mid-range, or luxury — in under 24 hours.",
-        "techStack": ["AI Video Generation", "Real Estate Marketing", "Virtual Staging", "Digital Twin", "Done-for-you Service"],
+        "techStack": [
+          "AI Video Generation",
+          "Real Estate Marketing",
+          "Virtual Staging",
+          "Digital Twin",
+          "Done-for-you Service"
+        ],
         "features": [
           "Cinematic property tour montages assembled from photos — no videographer or site visit needed",
           "Layered virtual furnishing reveals — virtual staging applied to video, not just static photos",
@@ -423,7 +459,15 @@
         "status": "past",
         "summary": "Multi-household food expiry tracker with a daily email digest and weekly waste summary. Households share a join code, log groceries with expiry dates, and get alerted before items go bad.",
         "description": "Tracepack started as a frustration with food waste at home — buying the same spinach twice because nobody tracked the first bag. The app lets multiple people in a household log groceries, see a live urgency dashboard (expires today / this week / fine), and receive a daily digest email listing everything expiring within 2 days. A weekly summary email shows how many items were actually wasted, creating a feedback loop that changes behaviour over time.",
-        "techStack": ["Next.js", "FastAPI", "PostgreSQL", "Docker", "APScheduler", "Jinja2", "Tailwind CSS"],
+        "techStack": [
+          "Next.js",
+          "FastAPI",
+          "PostgreSQL",
+          "Docker",
+          "APScheduler",
+          "Jinja2",
+          "Tailwind CSS"
+        ],
         "features": [
           "Multi-household with invite code join flow",
           "Urgency-grouped dashboard (expires soon / this week / fine)",
@@ -447,7 +491,15 @@
         "status": "past",
         "summary": "Open-source Python CLI for local AWS Lambda testing. Generates realistic trigger event payloads and invokes handlers locally with moto-based AWS service mocking — no Docker, no SAM.",
         "description": "lambdaforge eliminates the friction of local Lambda testing. It generates complete, schema-accurate event payloads for API Gateway, SQS, S3, SNS, and EventBridge triggers, and invokes your handler directly in-process. AWS service calls (DynamoDB, S3, SSM, SQS, SNS) can be intercepted by moto with a single flag. Published on PyPI.",
-        "techStack": ["Python", "AWS Lambda", "CLI", "moto", "boto3", "PyPI", "Developer Tooling"],
+        "techStack": [
+          "Python",
+          "AWS Lambda",
+          "CLI",
+          "moto",
+          "boto3",
+          "PyPI",
+          "Developer Tooling"
+        ],
         "features": [
           "Generates schema-accurate event payloads for API Gateway, SQS, S3, SNS, and EventBridge triggers",
           "Invokes Lambda handlers directly in-process — no Docker or SAM required",
@@ -470,7 +522,15 @@
         "status": "past",
         "summary": "A self-hosted cron job management dashboard. Schedule jobs, track run history with output logs, and get notified via webhook or email when failures cross a configurable threshold.",
         "description": "CronVault grew from the need to reliably schedule and observe recurring tasks without depending on external services. A FastAPI backend drives an APScheduler instance that executes shell commands on a cron schedule and records every run — status, duration, and captured stdout/stderr — to a SQLite database. A Next.js frontend surfaces a live job table, per-job run history with an output log modal, and a duration bar chart. The notifications layer lets operators configure a failure threshold and recovery alerts that fire over HTTP webhook or SMTP email, keeping alert noise low by triggering only on threshold crossings rather than every individual failure.",
-        "techStack": ["Next.js", "TypeScript", "FastAPI", "Python", "SQLite", "APScheduler", "Docker"],
+        "techStack": [
+          "Next.js",
+          "TypeScript",
+          "FastAPI",
+          "Python",
+          "SQLite",
+          "APScheduler",
+          "Docker"
+        ],
         "features": [
           "Create, edit, and delete cron jobs with a schedule expression and shell command",
           "Live dashboard table with last-run status, duration, and next scheduled time",
