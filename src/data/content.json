@@ -588,35 +588,50 @@
             {
               "name": "Recording Module",
               "note": "Scheduled capture of TikTok livestreams",
-              "highlight": false
+              "type": "module"
             },
             {
               "name": "Google Drive",
-              "note": "Storage backbone — raw recordings in, finished clips out",
-              "storage": true
+              "note": "Raw recordings stored here",
+              "type": "storage"
             },
             {
               "name": "Clipper Module",
-              "note": "This project — transcription, AI analysis, cutting, captions",
-              "highlight": true
+              "note": "This project",
+              "type": "highlight"
             },
             {
               "name": "Google Drive",
-              "note": "Finished clips delivered, ready for upload",
-              "storage": true
+              "note": "Finished clips delivered here",
+              "type": "storage"
             },
             {
               "name": "Upload Module",
-              "note": "Publishes finished clips to TikTok",
-              "highlight": false
+              "note": "Publishes clips to TikTok",
+              "type": "module"
             }
           ],
           "internalSteps": [
-            "Whisper ASR (GPU)",
-            "GPT-4o Correction",
-            "GPT-4o Highlight Detection",
-            "ffmpeg Clip Cutting",
-            "ASS Caption Burning"
+            {
+              "label": "Whisper ASR",
+              "note": "GPU-accelerated speech-to-text with language-primed decoding"
+            },
+            {
+              "label": "GPT-4o Correction",
+              "note": "Conservative transcript cleanup — preserves dialect and slang"
+            },
+            {
+              "label": "GPT-4o Highlight Detection",
+              "note": "Chunked transcript windows scored for virality"
+            },
+            {
+              "label": "ffmpeg Clip Cutting",
+              "note": "Letterboxed 9:16 output, fast-seek for VFR livestreams"
+            },
+            {
+              "label": "Caption Burning",
+              "note": "Word-highlight karaoke captions, pause-aware grouping"
+            }
           ]
         }
       },

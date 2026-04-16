@@ -13,8 +13,8 @@ export interface Project {
   pypi?: string;
   image?: string;
   architectureDiagram?: {
-    modules: { name: string; note: string; highlight?: boolean; storage?: boolean }[];
-    internalSteps: string[];
+    modules: { name: string; note: string; type: "module" | "storage" | "highlight" }[];
+    internalSteps: { label: string; note: string }[];
   };
   status: "active" | "past";
 }
