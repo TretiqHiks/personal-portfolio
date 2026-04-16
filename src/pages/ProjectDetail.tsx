@@ -146,20 +146,6 @@ const ProjectDetail = () => {
           />
         )}
 
-        {/* Text Architecture Diagram */}
-        {project.diagram && (
-          <motion.div
-            {...fadeUp}
-            transition={{ duration: 0.4, delay: 0.22 }}
-            className="glass rounded-2xl p-6 mb-10"
-          >
-            <h2 className="text-lg font-semibold text-foreground mb-4">Architecture Overview</h2>
-            <pre className="text-xs text-muted-foreground font-mono leading-relaxed whitespace-pre overflow-x-auto">
-              {project.diagram}
-            </pre>
-          </motion.div>
-        )}
-
         {/* Features */}
         <motion.div
           {...fadeUp}

@@ -395,36 +395,6 @@
     ],
     "projects": [
       {
-        "id": "polymarket-bot",
-        "title": "Polymarket Trading Bot",
-        "status": "active",
-        "summary": "An AI-powered autonomous trading agent that monitors prediction markets in real time, uses a multi-stage LLM pipeline to triage opportunities, and manages risk across thematic market baskets — all surfaced through a live web dashboard.",
-        "description": "The bot continuously monitors hundreds of prediction markets, polling for price movements and liquidity signals. When a market shows meaningful activity, it is routed through a two-stage AI pipeline: a lightweight triage model that rapidly classifies the opportunity, followed by a deeper reasoning model that sets strategic direction for the basket it belongs to. Markets are grouped into thematic baskets — each with its own risk budget and steering state — so the system can hold different views on correlated events simultaneously. A real-time dashboard tracks portfolio exposure, AI inference costs, live market prices, and decision history. All analysis and execution is fully asynchronous: data polling, AI reasoning, and risk checks run on independent cycles, keeping latency low without coupling fast signals to slow deliberation.",
-        "techStack": [
-          "Async Python",
-          "Multi-stage LLM Pipeline",
-          "Prediction Markets",
-          "Event-Driven Architecture",
-          "Real-time WebSocket Dashboard",
-          "Multi-basket Risk Management"
-        ],
-        "features": [
-          "Continuous market monitoring with decoupled polling and analysis cycles — fast data, deliberate decisions",
-          "Two-stage AI pipeline: lightweight triage for rapid signal classification, deeper model for strategic steering",
-          "Thematic market baskets with independent risk budgets, steering modes, and position limits",
-          "Live web dashboard with portfolio equity curve, AI cost tracking, market price charts, and decision log",
-          "Persistent state across restarts — cost history, basket assignments, and steering parameters all survive a reboot",
-          "Volume-ranked catch-all basket ensures high-liquidity markets are always covered regardless of topic"
-        ],
-        "challenges": [
-          "Designed a decoupled async architecture where market data polling, LLM analysis, and risk execution run on entirely independent timers — avoiding the trap of coupling fast signals to slow deliberation cycles.",
-          "Built a multi-basket system that lets the bot hold simultaneous, potentially conflicting views on correlated prediction markets, each governed by its own risk budget and AI steering state.",
-          "Implemented a two-stage AI routing strategy that keeps inference costs low: a cheap triage model handles the high-frequency classification layer, escalating only genuinely ambiguous signals to the more powerful reasoning model."
-        ],
-        "diagram": "Market Feed → Price Cache → Signal Detector\n                                    ↓\n                          Triage Model (fast)\n                          CLEAR  AMBIGUOUS  ESCALATE\n                            ↓       ↓          ↓\n                         skip    strategic   reasoning\n                                  skip        model\n                                               ↓\n                                   Basket Steering Update\n                                   (bias · mode · width)\n                                               ↓\n                                    Risk Gate → Execution\n                                               ↓\n                                       Dashboard (live)",
-        "github": "https://github.com/TretiqHiks/trading-bot"
-      },
-      {
         "id": "estatevisio",
         "title": "EstateVisio",
         "status": "active",
@@ -452,6 +422,72 @@
         ],
         "demo": "https://estatevisio.com",
         "image": "project-estatevisio"
+      },
+      {
+        "id": "polymarket-bot",
+        "title": "Polymarket Trading Bot",
+        "status": "active",
+        "summary": "An AI-powered autonomous trading agent that monitors prediction markets in real time, uses a multi-stage LLM pipeline to triage opportunities, and manages risk across thematic market baskets — all surfaced through a live web dashboard.",
+        "description": "The bot continuously monitors hundreds of prediction markets, polling for price movements and liquidity signals. When a market shows meaningful activity, it is routed through a two-stage AI pipeline: a lightweight triage model that rapidly classifies the opportunity, followed by a deeper reasoning model that sets strategic direction for the basket it belongs to. Markets are grouped into thematic baskets — each with its own risk budget and steering state — so the system can hold different views on correlated events simultaneously. A real-time dashboard tracks portfolio exposure, AI inference costs, live market prices, and decision history. All analysis and execution is fully asynchronous: data polling, AI reasoning, and risk checks run on independent cycles, keeping latency low without coupling fast signals to slow deliberation.",
+        "techStack": [
+          "Async Python",
+          "Multi-stage LLM Pipeline",
+          "Prediction Markets",
+          "Event-Driven Architecture",
+          "Real-time WebSocket Dashboard",
+          "Multi-basket Risk Management"
+        ],
+        "features": [
+          "Continuous market monitoring with decoupled polling and analysis cycles — fast data, deliberate decisions",
+          "Two-stage AI pipeline: lightweight triage for rapid signal classification, deeper model for strategic steering",
+          "Thematic market baskets with independent risk budgets, steering modes, and position limits",
+          "Live web dashboard with portfolio equity curve, AI cost tracking, market price charts, and decision log",
+          "Persistent state across restarts — cost history, basket assignments, and steering parameters all survive a reboot",
+          "Volume-ranked catch-all basket ensures high-liquidity markets are always covered regardless of topic"
+        ],
+        "challenges": [
+          "Designed a decoupled async architecture where market data polling, LLM analysis, and risk execution run on entirely independent timers — avoiding the trap of coupling fast signals to slow deliberation cycles.",
+          "Built a multi-basket system that lets the bot hold simultaneous, potentially conflicting views on correlated prediction markets, each governed by its own risk budget and AI steering state.",
+          "Implemented a two-stage AI routing strategy that keeps inference costs low: a cheap triage model handles the high-frequency classification layer, escalating only genuinely ambiguous signals to the more powerful reasoning model."
+        ],
+        "image": "project-polymarket-bot",
+        "architectureDiagram": {
+          "modules": [
+            {
+              "name": "Market Feed",
+              "note": "Gamma API · 500+ markets",
+              "storage": true
+            },
+            {
+              "name": "Price Cache",
+              "note": "10s polling cycle"
+            },
+            {
+              "name": "Signal Detector",
+              "note": "price Δ · volume · spread"
+            },
+            {
+              "name": "LLM Pipeline",
+              "note": "two-stage · triage + reasoning",
+              "highlight": true
+            },
+            {
+              "name": "Risk Gate",
+              "note": "position limits · exposure caps"
+            },
+            {
+              "name": "Live Dashboard",
+              "note": "WebSocket · real-time",
+              "storage": true
+            }
+          ],
+          "internalSteps": [
+            "Triage Model — rapid signal classification",
+            "Route: CLEAR → skip, AMBIGUOUS → hold, ESCALATE → deep analysis",
+            "Reasoning Model — strategic basket steering",
+            "Apply: bias · mode · quote width · hold-off"
+          ]
+        }
       },
       {
         "id": "tracepack",
@@ -546,7 +582,6 @@
           "Fixed-word-count caption grouping breaks down after pauses — old words linger on screen and read as residual noise. Switching to silence-gap detection (>0.5s) aligns group boundaries with natural speech rhythm, making captions feel authored rather than mechanical.",
           "Center-crop for 9:16 output loses content on variable-resolution livestreams. Letterbox padding preserves the full frame and stays within TikTok's format requirements without any resolution-specific logic."
         ],
-        "github": "https://github.com/TretiqHiks/tiktok-clip-farm-clipper-module",
         "image": "project-tiktok-clipper",
         "architectureDiagram": {
           "modules": [

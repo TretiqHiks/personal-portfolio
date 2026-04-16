@@ -12,17 +12,11 @@ export interface Project {
   demo?: string;
   pypi?: string;
   image?: string;
-  diagram?: string;
-  status: "active" | "past";
   architectureDiagram?: {
-    modules: Array<{
-      name: string;
-      note: string;
-      highlight?: boolean;
-      storage?: boolean;
-    }>;
+    modules: { name: string; note: string; highlight?: boolean; storage?: boolean }[];
     internalSteps: string[];
   };
+  status: "active" | "past";
 }
 
 export interface ExperienceEntry {
