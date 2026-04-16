@@ -446,9 +446,9 @@
           "Volume-ranked catch-all basket ensures high-liquidity markets are always covered regardless of topic"
         ],
         "challenges": [
-          "Designed a decoupled async architecture where market data polling, LLM analysis, and risk execution run on entirely independent timers — avoiding the trap of coupling fast signals to slow deliberation cycles.",
-          "Built a multi-basket system that lets the bot hold simultaneous, potentially conflicting views on correlated prediction markets, each governed by its own risk budget and AI steering state.",
-          "Implemented a two-stage AI routing strategy that keeps inference costs low: a cheap triage model handles the high-frequency classification layer, escalating only genuinely ambiguous signals to the more powerful reasoning model."
+          "The system runs three fully independent async loops: a market data poller at 10-second intervals, a per-market analysis scheduler that gates LLM calls by elapsed time, and a broadcast loop that pushes state to the dashboard every 5 seconds. None of these block each other.",
+          "Markets are grouped into thematic baskets — each with its own steering state, risk budget, position limits, and AI confidence level. The top-volume basket automatically absorbs the highest-liquidity unassigned markets, ensuring broad coverage without manual configuration.",
+          "The AI layer uses a two-model pipeline: a lightweight triage model runs on every signal, and a deeper reasoning model is only invoked on ESCALATE-classified events or after a minimum review interval. This keeps inference costs proportional to actual market activity."
         ],
         "image": "project-polymarket-bot",
         "architectureDiagram": {
